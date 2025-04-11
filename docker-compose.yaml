@@ -1,0 +1,59 @@
+services:
+  db:
+      image: mysql:latest
+      container_name: epiportal-db
+      restart: always
+      env_file:
+          - ./.env
+      environment:
+          MYSQL_DATABASE: ${MYSQL_DATABASE}
+          MYSQL_USER: ${MYSQL_USER}
+          MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+          MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      volumes:
+          - mysql:/var/lib/mysql/
+      ports:
+          - "3306:3306"
+
+  # Production service - "service", "image", and "container_name" should all contain the same
+  # reference based on the name of the service.
+  epwebapp:
+      image: ${REGISTRY}epiportal-epwebapp${TAG}
+      build:
+          context: .
+
+      env_file:
+          - ./.env
+      container_name: epiportal-epwebapp
+      restart: on-failure
+      command: sh -c  "python3 /usr/src/epiportal/src/manage.py migrate --noinput &&
+                       python3 /usr/src/epiportal/src/manage.py collectstatic --noinput &&
+                       python3 /usr/src/epiportal/src/manage.py initadmin &&
+                       python3 /usr/src/epiportal/src/manage.py runserver 0.0.0.0:8000"
+      volumes:
+          - .:/usr/src/epiportal
+      ports:
+          - "8000:8000"
+      depends_on:
+          - db
+
+  # Production service - "service", "image", and "container_name" should all contain the same
+  # reference, based on the name of the service.
+  epnginx:
+      image: ${REGISTRY}epiportal-epnginx${TAG}
+      build: ./nginx
+      env_file:
+          - ./.env
+      container_name: epiportal-epnginx
+      restart: on-failure
+      volumes:
+          - ./src/staticfiles:/staticfiles
+      ports:
+          - "80:80"
+      depends_on:
+          - epwebapp
+
+volumes:
+    mysql:
+    epwebapp:
+    static:
