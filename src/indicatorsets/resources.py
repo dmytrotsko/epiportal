@@ -2,13 +2,12 @@ from import_export import resources
 from import_export.fields import Field
 from import_export.widgets import ForeignKeyWidget, ManyToManyWidget
 
-from django.db.models import Max
-
 from base.models import Pathogen, GeographicScope, Geography, SeverityPyramidRung
+from base.resources import GEOGRAPHIC_GRANULARITY_MAPPING
 from indicatorsets.models import IndicatorSet
 
 
-def process_geographic_scope(row):
+def process_geographic_scope(row) -> None:
     if row["Geographic Coverage"]:
         geographic_scope_name = row["Geographic Coverage"].strip()
         geographic_scope_obj, _ = GeographicScope.objects.get_or_create(
@@ -18,10 +17,9 @@ def process_geographic_scope(row):
                 "used_in": "indicatorsets",
             },
         )
-        row["Geographic Coverage"] = geographic_scope_obj
 
 
-def process_severity_pyramid_rungs(row):
+def process_severity_pyramid_rungs(row) -> None:
     if row["Surveillance Categories"]:
         severity_pyramid_rungs = row["Surveillance Categories"].split(",")
         for spr in severity_pyramid_rungs:
@@ -30,6 +28,35 @@ def process_severity_pyramid_rungs(row):
                 name=spr_name,
                 used_in="indicatorsets",
                 defaults={"display_name": spr_name.capitalize()},
+            )
+
+
+def process_pathogens(row) -> None:
+    if row["Pathogen(s)/Syndrome(s)"]:
+        pathogens = row["Pathogen(s)/Syndrome(s)"].split(",")
+        for pathogen in pathogens:
+            pathogen_name = pathogen.strip()
+            pathogen_obj, _ = Pathogen.objects.get_or_create(
+                name=pathogen_name,
+                used_in="indicatorsets",
+                defaults={
+                    "display_name": pathogen_name.capitalize(),
+                    "used_in": "indicatorsets",
+                },
+            )
+
+
+def process_available_geographies(row) -> None:
+    if row["Geographic Granularity - Delphi"]:
+        available_geographies = row["Geographic Granularity - Delphi"].split(",")
+        for geography in available_geographies:
+            geography_name = geography.strip()
+            default_params = GEOGRAPHIC_GRANULARITY_MAPPING[geography_name]
+            default_params["used_in"] = "indicatorsets"
+            geography_obj, _ = Geography.objects.get_or_create(
+                name=geography_name,
+                used_in="indicatorsets",
+                defaults=default_params,
             )
 
 
@@ -61,6 +88,11 @@ class IndicatorSetResource(resources.ModelResource):
     origin_datasource = Field(
         attribute="origin_datasource",
         column_name="Source dataset from which data was derived (for aggregates or processed data) ",
+    )
+    pathogens = Field(
+        attribute="pathogens",
+        column_name="Pathogen(s)/Syndrome(s)",
+        widget=ManyToManyWidget(Pathogen, field="name", separator=","),
     )
     data_type = Field(attribute="data_type", column_name="Type(s) of Data*")
     geographic_scope = Field(
@@ -106,8 +138,8 @@ class IndicatorSetResource(resources.ModelResource):
     dataset_location = Field(
         attribute="dataset_location", column_name="Dataset Location"
     )
-    link_to_documentation = Field(
-        attribute="link_to_documentation", column_name="Link to documentation"
+    documentation_link = Field(
+        attribute="documentation_link", column_name="Link to documentation"
     )
     severity_pyramid_rungs = Field(
         attribute="severity_pyramid_rungs",
@@ -130,6 +162,7 @@ class IndicatorSetResource(resources.ModelResource):
             "language",
             "version_number",
             "origin_datasource",
+            "pathogens",
             "original_data_provider",
             "data_type",
             "geographic_scope",
@@ -148,7 +181,7 @@ class IndicatorSetResource(resources.ModelResource):
             "dua_required",
             "license",
             "dataset_location",
-            "link_to_documentation",
+            "documentation_link",
             "severity_pyramid_rungs",
             "epidata_endpoint",
         )
@@ -160,3 +193,5 @@ class IndicatorSetResource(resources.ModelResource):
     def before_import_row(self, row, **kwargs):
         process_geographic_scope(row)
         process_severity_pyramid_rungs(row)
+        process_pathogens(row)
+        process_available_geographies(row)

@@ -37,7 +37,7 @@ class Pathogen(models.Model):
         ]
 
     def __str__(self):
-        return self.name
+        return self.display_name if self.display_name else self.name
 
 
 class GeographicScope(models.Model):
