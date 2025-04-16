@@ -1,6 +1,7 @@
 GEOGRAPHIC_GRANULARITY_MAPPING = {
     "nation": {"display_name": "National", "display_order_number": 1},
     "hhs-region": {"display_name": "U.S. HHS Region", "display_order_number": 2},
+    "hhs": {"display_name": "U.S. HHS Region", "display_order_number": 2},
     "census-region": {"display_name": "U.S. Census Region", "display_order_number": 3},
     "region": {"display_name": "Other Subnational Region", "display_order_number": 4},
     "state": {"display_name": "State/ADM 1", "display_order_number": 5},

@@ -110,7 +110,7 @@ LOCAL_APPS: list[str] = [
     'datasources',
     'base',
     'indicatorsets',
-    # 'rest_api',
+    'indicators',
 ]
 
 INSTALLED_APPS: list[str] = DEFAULT_APPS + EXTERNAL_APPS + LOCAL_APPS

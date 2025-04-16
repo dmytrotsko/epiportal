@@ -9,7 +9,7 @@ USED_IN_CHOICES = (
 class Pathogen(models.Model):
 
     name: models.CharField = models.CharField(
-        verbose_name="Name", max_length=255, unique=True
+        verbose_name="Name", max_length=255
     )
     display_name: models.CharField = models.CharField(
         verbose_name="Display Name", max_length=255, blank=True
@@ -132,6 +132,46 @@ class SeverityPyramidRung(models.Model):
             models.UniqueConstraint(
                 fields=["name", "used_in"],
                 name="unique_severity_pyramid_rung_name_used_in",
+            )
+        ]
+
+    def __str__(self):
+        return self.display_name if self.display_name else self.name
+
+
+class GeographyUnit(models.Model):
+    geo_id: models.CharField = models.CharField(
+        verbose_name="Geo ID", max_length=255, unique=True
+    )
+    name: models.CharField = models.CharField(
+        verbose_name="Name", max_length=255, blank=True
+    )
+    display_name: models.CharField = models.CharField(
+        verbose_name="Display Name", max_length=255, blank=True
+    )
+    level: models.IntegerField = models.IntegerField(
+        verbose_name="Level", blank=True, null=True
+    )
+    geo_level: models.ForeignKey = models.ForeignKey(
+        Geography,
+        on_delete=models.CASCADE,
+        related_name="geography_units",
+        verbose_name="Geography Level",
+        blank=True,
+        null=True,
+    )
+
+    class Meta:
+        verbose_name = "Geography Unit"
+        verbose_name_plural = "Geography Units"
+        ordering = ["geo_id"]
+        indexes = [
+            models.Index(fields=["geo_id"], name="geo_unit_geo_id_idx"),
+        ]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["geo_id", "geo_level"],
+                name="unique_geo_unit_geo_id_geo_level",
             )
         ]
 

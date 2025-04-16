@@ -1,8 +1,9 @@
+from django.db.models import Max
 from import_export import resources
 from import_export.fields import Field
 from import_export.widgets import ForeignKeyWidget, ManyToManyWidget
 
-from base.models import Pathogen, GeographicScope, Geography, SeverityPyramidRung
+from base.models import GeographicScope, Geography, Pathogen, SeverityPyramidRung
 from base.resources import GEOGRAPHIC_GRANULARITY_MAPPING
 from indicatorsets.models import IndicatorSet
 
@@ -17,7 +18,7 @@ def process_geographic_scope(row) -> None:
                 "used_in": "indicatorsets",
             },
         )
-
+        row["Geographic Coverage"] = geographic_scope_obj.id
 
 def process_severity_pyramid_rungs(row) -> None:
     if row["Surveillance Categories"]:
@@ -51,8 +52,14 @@ def process_available_geographies(row) -> None:
         available_geographies = row["Geographic Granularity - Delphi"].split(",")
         for geography in available_geographies:
             geography_name = geography.strip()
-            default_params = GEOGRAPHIC_GRANULARITY_MAPPING[geography_name]
-            default_params["used_in"] = "indicatorsets"
+            default_params = {"used_in": "indicatorsets"}
+            try:
+                default_params.update(GEOGRAPHIC_GRANULARITY_MAPPING[geography_name])
+            except KeyError:
+                max_display_order_number = Geography.objects.filter(
+                    used_in="indicatorsets"
+                ).aggregate(Max("display_order_number"))["display_order_number__max"]
+                default_params["display_order_number"] = max_display_order_number + 1
             geography_obj, _ = Geography.objects.get_or_create(
                 name=geography_name,
                 used_in="indicatorsets",
@@ -98,7 +105,7 @@ class IndicatorSetResource(resources.ModelResource):
     geographic_scope = Field(
         attribute="geographic_scope",
         column_name="Geographic Coverage",
-        widget=ForeignKeyWidget(GeographicScope, field="name"),
+        widget=ForeignKeyWidget(GeographicScope),
     )
     geographic_levels = Field(
         attribute="geographic_levels",
