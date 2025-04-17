@@ -8,9 +8,7 @@ USED_IN_CHOICES = (
 
 class Pathogen(models.Model):
 
-    name: models.CharField = models.CharField(
-        verbose_name="Name", max_length=255
-    )
+    name: models.CharField = models.CharField(verbose_name="Name", max_length=255)
     display_name: models.CharField = models.CharField(
         verbose_name="Display Name", max_length=255, blank=True
     )
@@ -21,6 +19,10 @@ class Pathogen(models.Model):
         blank=True,
         choices=USED_IN_CHOICES,
         help_text="Indicates where the pathogen is used",
+    )
+
+    display_order_number: models.IntegerField = models.IntegerField(
+        verbose_name="Display Order Number", blank=True, null=True
     )
 
     class Meta:
@@ -52,6 +54,10 @@ class GeographicScope(models.Model):
         help_text="Indicates where the geographic scope is used",
     )
 
+    display_order_number: models.IntegerField = models.IntegerField(
+        verbose_name="Display Order Number", blank=True, null=True
+    )
+
     class Meta:
         verbose_name = "Geographic Scope"
         verbose_name_plural = "Geographic Scopes"
@@ -75,6 +81,9 @@ class Geography(models.Model):
     name: models.CharField = models.CharField(verbose_name="Name", max_length=255)
     display_name: models.CharField = models.CharField(
         verbose_name="Display Name", max_length=255, blank=True
+    )
+    short_name: models.CharField = models.CharField(
+        verbose_name="Short Name", max_length=255, blank=True
     )
     display_order_number: models.IntegerField = models.IntegerField(
         verbose_name="Display Order Number", blank=True, null=True
@@ -140,9 +149,7 @@ class SeverityPyramidRung(models.Model):
 
 
 class GeographyUnit(models.Model):
-    geo_id: models.CharField = models.CharField(
-        verbose_name="Geo ID", max_length=255, unique=True
-    )
+    geo_id: models.CharField = models.CharField(verbose_name="Geo ID", max_length=255)
     name: models.CharField = models.CharField(
         verbose_name="Name", max_length=255, blank=True
     )
@@ -167,12 +174,6 @@ class GeographyUnit(models.Model):
         ordering = ["geo_id"]
         indexes = [
             models.Index(fields=["geo_id"], name="geo_unit_geo_id_idx"),
-        ]
-        constraints = [
-            models.UniqueConstraint(
-                fields=["geo_id", "geo_level"],
-                name="unique_geo_unit_geo_id_geo_level",
-            )
         ]
 
     def __str__(self):

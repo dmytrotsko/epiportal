@@ -1,0 +1,13 @@
+[
+    {
+        "model": "base.GeographyUnit",
+        "pk": 3985,
+        "fields": {
+            "geo_id": "US",
+            "name": "United States",
+            "display_name": "United States",
+            "level": 5,
+            "geo_level": 5
+        }
+    }
+]

@@ -1,6 +1,12 @@
 from django.contrib import admin
 
-from base.models import Pathogen, GeographicScope, Geography, SeverityPyramidRung
+from base.models import (
+    Pathogen,
+    GeographicScope,
+    Geography,
+    SeverityPyramidRung,
+    GeographyUnit,
+)
 
 # Register your models here.
 
@@ -59,3 +65,17 @@ class SeverityPyramidRungAdmin(admin.ModelAdmin):
     list_filter = ["used_in"]
     list_per_page = 20
     list_display_links = ["name"]
+
+
+@admin.register(GeographyUnit)
+class GeographyUnitAdmin(admin.ModelAdmin):
+    """
+    Admin interface for GeographyUnit model.
+    """
+
+    list_display = ["name", "display_name"]
+    search_fields = ["name", "display_name"]
+    ordering = ["name"]
+    list_per_page = 20
+    list_display_links = ["name"]
+    list_editable = ["display_name"]

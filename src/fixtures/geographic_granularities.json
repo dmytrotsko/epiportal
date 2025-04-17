@@ -1,0 +1,145 @@
+[
+    {
+        "model": "base.Geography",
+        "pk": 1,
+        "fields": {
+            "name": "nation",
+            "display_name": "National",
+            "display_order_number": 1,
+            "used_in": "indicatorsets",
+            "short_name": "National"
+        }
+    },
+    {
+        "model": "base.Geography",
+        "pk": 2,
+        "fields": {
+            "name": "hhs-region",
+            "display_name": "U.S. HHS Region",
+            "display_order_number": 2,
+            "used_in": "indicatorsets",
+            "short_name": "HHS"
+        }
+    },
+    {
+        "model": "base.Geography",
+        "pk": 3,
+        "fields": {
+            "name": "census-region",
+            "display_name": "U.S. Census Region",
+            "display_order_number": 3,
+            "used_in": "indicatorsets",
+            "short_name": "Census"
+        }
+    },
+    {
+        "model": "base.Geography",
+        "pk": 4,
+        "fields": {
+            "name": "region",
+            "display_name": "Other Subnational Region",
+            "display_order_number": 4,
+            "used_in": "indicatorsets",
+            "short_name": "Subnational"
+        }
+    },
+    {
+        "model": "base.Geography",
+        "pk": 5,
+        "fields": {
+            "name": "state",
+            "display_name": "State/ADM 1",
+            "display_order_number": 5,
+            "used_in": "indicatorsets",
+            "short_name": "ADM 1"
+        }
+    },
+    {
+        "model": "base.Geography",
+        "pk": 6,
+        "fields": {
+            "name": "county",
+            "display_name": "County/ADM 2",
+            "display_order_number": 6,
+            "used_in": "indicatorsets",
+            "short_name": "ADM 2"
+        }
+    },
+    {
+        "model": "base.Geography",
+        "pk": 7,
+        "fields": {
+            "name": "city",
+            "display_name": "Municipality/ADM 3",
+            "display_order_number": 7,
+            "used_in": "indicatorsets",
+            "short_name": "ADM 3"
+        }
+    },
+    {
+        "model": "base.Geography",
+        "pk": 8,
+        "fields": {
+            "name": "hrr",
+            "display_name": "Hospital Referral Region (HRR)",
+            "display_order_number": 8,
+            "used_in": "indicatorsets",
+            "short_name": "HRR"
+        }
+    },
+    {
+        "model": "base.Geography",
+        "pk": 9,
+        "fields": {
+            "name": "msa",
+            "display_name": "Metropolitan Statistical Area (MSA)",
+            "display_order_number": 9,
+            "used_in": "indicatorsets",
+            "short_name": "MSA"
+        }
+    },
+    {
+        "model": "base.Geography",
+        "pk": 10,
+        "fields": {
+            "name": "dma",
+            "display_name": "Designated Market Area (DMA)",
+            "display_order_number": 10,
+            "used_in": "indicatorsets",
+            "short_name": "DMA"
+        }
+    },
+    {
+        "model": "base.Geography",
+        "pk": 11,
+        "fields": {
+            "name": "facility",
+            "display_name": "Hospital (\"Facility\")",
+            "display_order_number": 11,
+            "used_in": "indicatorsets",
+            "short_name": "Facility"
+        }
+    },
+    {
+        "model": "base.Geography",
+        "pk": 12,
+        "fields": {
+            "name": "FluSurv-Net site",
+            "display_name": "FluSurv-Net site (see documentation)",
+            "display_order_number": 12,
+            "used_in": "indicatorsets",
+            "short_name": "FluSurv-Net site"
+        }
+    },
+    {
+        "model": "base.Geography",
+        "pk": 13,
+        "fields": {
+            "name": "N/A",
+            "display_name": "N/A",
+            "display_order_number": 13,
+            "used_in": "indicatorsets",
+            "short_name": "N/A"
+        }
+    }
+]

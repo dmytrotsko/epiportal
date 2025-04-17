@@ -1,0 +1,102 @@
+[
+    {
+        "model": "base.severitypyramidrung",
+        "pk": 1,
+        "fields": {
+            "name": "Entire Population",
+            "display_name": "Entire Population",
+            "used_in": "indicatorsets",
+            "display_order_number": 1
+        }
+    },
+    {
+        "model": "base.severitypyramidrung",
+        "pk": 2,
+        "fields": {
+            "name": "Vaccinated",
+            "display_name": "Vaccinated",
+            "used_in": "indicatorsets",
+            "display_order_number": 2
+        }
+    },
+    {
+        "model": "base.severitypyramidrung",
+        "pk": 3,
+        "fields": {
+            "name": "Infected",
+            "display_name": "Infected",
+            "used_in": "indicatorsets",
+            "display_order_number": 3
+        }
+    },
+    {
+        "model": "base.severitypyramidrung",
+        "pk": 4,
+        "fields": {
+            "name": "Tested",
+            "display_name": "Tested",
+            "used_in": "indicatorsets",
+            "display_order_number": 4
+        }
+    },
+    {
+        "model": "base.severitypyramidrung",
+        "pk": 5,
+        "fields": {
+            "name": "Ascertained (Case)",
+            "display_name": "Ascertained (Case)",
+            "used_in": "indicatorsets",
+            "display_order_number": 5
+        }
+    },
+    {
+        "model": "base.severitypyramidrung",
+        "pk": 6,
+        "fields": {
+            "name": "Symptomatic",
+            "display_name": "Symptomatic",
+            "used_in": "indicatorsets",
+            "display_order_number": 6
+        }
+    },
+    {
+        "model": "base.severitypyramidrung",
+        "pk": 7,
+        "fields": {
+            "name": "Outpatient / ED",
+            "display_name": "Outpatient / ED",
+            "used_in": "indicatorsets",
+            "display_order_number": 7
+        }
+    },
+    {
+        "model": "base.severitypyramidrung",
+        "pk": 8,
+        "fields": {
+            "name": "Hospitalized",
+            "display_name": "Hospitalized",
+            "used_in": "indicatorsets",
+            "display_order_number": 8
+        }
+    },
+    {
+        "model": "base.severitypyramidrung",
+        "pk": 9,
+        "fields": {
+            "name": "ICU",
+            "display_name": "ICU",
+            "used_in": "indicatorsets",
+            "display_order_number": 9
+        }
+    },
+    {
+        "model": "base.severitypyramidrung",
+        "pk": 10,
+        "fields": {
+            "name": "Deceased",
+            "display_name": "Deceased",
+            "used_in": "indicatorsets",
+            "display_order_number": 10
+        }
+    }
+]
