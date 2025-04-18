@@ -4,6 +4,9 @@ from base.models import Pathogen, GeographicScope, Geography, SeverityPyramidRun
 from indicatorsets.models import IndicatorSet
 
 
+
+
+
 class IndicatorSetFilterForm(forms.ModelForm):
 
     pathogens = forms.ModelMultipleChoiceField(
@@ -25,7 +28,9 @@ class IndicatorSetFilterForm(forms.ModelForm):
         widget=forms.CheckboxSelectMultiple(),
     )
     severity_pyramid_rungs = forms.ModelMultipleChoiceField(
-        queryset=SeverityPyramidRung.objects.filter(used_in="indicatorsets").order_by("display_order_number"),
+        queryset=SeverityPyramidRung.objects.filter(used_in="indicatorsets").order_by(
+            "display_order_number"
+        ),
         widget=forms.CheckboxSelectMultiple(),
     )
 

@@ -146,6 +146,9 @@ TEMPLATES: list[dict[str, Any]] = [
                 'django.contrib.messages.context_processors.messages',
                 # 'base.context_processors.filters_descriptions'
             ],
+            'libraries': {
+                'dict_get': 'base.templatetags.dict_get',
+            },
         },
     },
 ]

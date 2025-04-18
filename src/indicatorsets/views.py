@@ -10,6 +10,17 @@ from base.models import Geography, GeographyUnit
 
 logger = logging.getLogger(__name__)
 
+FILTERS_DESCRIPTIONS = {
+    "pathogens": "List only indicators related to these pathogens, syndromes or diseases.",
+    "geographic_scope": "List only indicators that cover any of the selected countries or world regions.",
+    "geographic_levels": "List only indicators that are available at any of the selected geographic levels.",
+    "severity_pyramid_rungs": "List only indicators that are directly related to any of the selected rungs.",
+    "original_data_provider": "List only indicator that are based on data from one of the selected sources.",
+    "temporal_granularity": "The temporal resolution of this indicator (not of the reporting).  Might not be the same as Reporting Cadence (e.g. a daily indicator may be reported only once a week).",
+    "temporal_scope_end": "The latest date for which this indicator is available.",
+    "location_search": "Enter one or more locations for which you are looking for indicator coverage, or leave empty for all locations.  Start entering a location name to see all compatible locations.  Auto-complete with [Tab] or [Enter].  Currently works only for U.S. locations.",
+}
+
 
 class IndicatorSetListView(ListView):
     model = IndicatorSet
@@ -73,6 +84,7 @@ class IndicatorSetListView(ListView):
         #         queryset=queryset, indicator_set_ids=queryset.values_list("id", flat=True)
         #     )
         # )
+        context["filters_descriptions"] = FILTERS_DESCRIPTIONS
         context["available_geographies"] = Geography.objects.filter(used_in="signals")
         context["geographic_granularities"] = [
             {

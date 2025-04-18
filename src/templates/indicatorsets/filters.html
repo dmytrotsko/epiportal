@@ -1,6 +1,7 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 {% load static %}
+{% load dict_get %}
 <div class="col-2">
     <form method="get" id="filterSignalSetsForm">
         <div class="card">
@@ -20,7 +21,7 @@
                                data-mdb-popover-init
                                data-mdb-trigger="hover"
                                data-mdb-placement="right"
-                               data-mdb-content="Enter one or more locations for which you are looking for indicator coverage, or leave empty for all locations.  Start entering a location name to see all compatible locations.  Auto-complete with [Tab] or [Enter].  Currently works only for U.S. locations.">
+                               data-mdb-content="{{ filters_descriptions|dict_get:"location_search" }}">
                                 <i class="far fa-circle-question"></i>
                             </a>
                         </p>
@@ -56,7 +57,7 @@
                                    data-mdb-popover-init
                                    data-mdb-trigger="hover"
                                    data-mdb-placement="right"
-                                   data-mdb-content="List only indicators related to these pathogens, syndromes or diseases.">
+                                   data-mdb-content="{{ filters_descriptions|dict_get:"pathogens" }}">
                                     <i class="far fa-circle-question"></i>
                                 </a>
                             </button>
@@ -93,7 +94,7 @@
                                    data-mdb-popover-init
                                    data-mdb-trigger="hover"
                                    data-mdb-placement="right"
-                                   data-mdb-content="List only indicators that cover any of the selected countries or world regions.">
+                                   data-mdb-content="{{ filters_descriptions|dict_get:"geographic_scope" }}">
                                     <i class="far fa-circle-question"></i>
                                 </a>
                             </button>
@@ -130,7 +131,7 @@
                                    data-mdb-popover-init
                                    data-mdb-trigger="hover"
                                    data-mdb-placement="right"
-                                   data-mdb-content="List only indicators that are available at any of the selected geographic levels.">
+                                   data-mdb-content="{{ filters_descriptions|dict_get:"geographic_levels" }}">
                                     <i class="far fa-circle-question"></i>
                                 </a>
                             </button>
@@ -167,7 +168,7 @@
                                    data-mdb-popover-init
                                    data-mdb-trigger="hover"
                                    data-mdb-placement="right"
-                                   data-mdb-content="List only indicators that are available at any of the selected temporal levels.">
+                                   data-mdb-content="{{ filters_descriptions|dict_get:"temporal_granularity" }}">
                                     <i class="far fa-circle-question"></i>
                                 </a>
                             </button>
@@ -198,7 +199,7 @@
                                    data-mdb-popover-init
                                    data-mdb-trigger="hover"
                                    data-mdb-placement="right"
-                                   data-mdb-content="List only indicators that are directly related to any of the selected rungs.">
+                                   data-mdb-content="{{ filters_descriptions|dict_get:"severity_pyramid_rungs" }}">
                                     <i class="far fa-circle-question"></i>
                                 </a>
                             </button>
@@ -235,7 +236,7 @@
                                    data-mdb-popover-init
                                    data-mdb-trigger="hover"
                                    data-mdb-placement="right"
-                                   data-mdb-content="List only indicator that are based on data from one of the selected sources.">
+                                   data-mdb-content="{{ filters_descriptions|dict_get:"original_data_provider" }}">
                                     <i class="far fa-circle-question"></i>
                                 </a>
                             </button>
@@ -263,7 +264,7 @@
                            data-mdb-popover-init
                            data-mdb-trigger="hover"
                            data-mdb-placement="right"
-                           data-mdb-content="List only indicators that are currently actively ingested.">
+                           data-mdb-content="{{ filters_descriptions|dict_get:"temporal_scope_end" }}">
                             <i class="far fa-circle-question"></i>
                         </a>
                     </div>
@@ -292,3 +293,16 @@
         </div>
     </form>
 </div>
+<script src="{% static 'js/indicatorsets_filters.js' %}"></script>
+<script>
+    $(document).ready(function() {
+        const geoValues = {{ geographic_granularities|safe }};
+        const locationSearchValues = geoValues.map(item => {
+            return {
+                ...item,
+                "id": `${item.geoType}:${item.id}`
+            }
+        });
+        initSelect2('location_search', locationSearchValues);
+    })
+</script>

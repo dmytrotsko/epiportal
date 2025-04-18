@@ -1,0 +1,369 @@
+
+<div class="col-10">
+    <div class="row table-responsive">
+        <table id="signalSetsTable" class="display cell-border" width="100%">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>
+                        Name
+                        <a tabindex="0"
+                           type="button"
+                           class="info-button filter-description-popover"
+                           data-mdb-container="body"
+                           data-mdb-ripple-init
+                           data-mdb-popover-init
+                           data-mdb-trigger="hover"
+                           data-mdb-placement="right"
+                           data-mdb-content="Hover over the indicator's name to see a brief description.">
+                            <i class="far fa-circle-question"></i>
+                        </a>
+                    </th>
+                    <th>
+                        Pathogen(s)/
+                        <br>
+                        Syndrome(s)
+                    </th>
+                    <th>
+                        Geographic Coverage
+                        <a tabindex="0"
+                           type="button"
+                           class="info-button filter-description-popover"
+                           data-mdb-container="body"
+                           data-mdb-ripple-init
+                           data-mdb-popover-init
+                           data-mdb-trigger="hover"
+                           data-mdb-placement="right"
+                           data-mdb-content="The countries or world regions covered by this indicator.  These are typically covered at finer geographic levels / jurisdictions.">
+                            <i class="far fa-circle-question"></i>
+                        </a>
+                    </th>
+                    <th class="min-w-300">
+                        Geographic Levels
+                        <a tabindex="0"
+                           type="button"
+                           class="info-button filter-description-popover"
+                           data-mdb-container="body"
+                           data-mdb-ripple-init
+                           data-mdb-popover-init
+                           data-mdb-trigger="hover"
+                           data-mdb-placement="right"
+                           data-mdb-content="All the geographic levels at which this indicator is available.  Larger jurisdictions are often based on aggregation of data from constituent jurisdictions.">
+                            <i class="far fa-circle-question"></i>
+                        </a>
+                    </th>
+                    <th class="min-w-120">
+                        Temporal Scope Start
+                        <a tabindex="0"
+                           type="button"
+                           class="info-button filter-description-popover"
+                           data-mdb-container="body"
+                           data-mdb-ripple-init
+                           data-mdb-popover-init
+                           data-mdb-trigger="hover"
+                           data-mdb-placement="right"
+                           data-mdb-content="The earliest date for which this indicator is available.">
+                            <i class="far fa-circle-question"></i>
+                        </a>
+                    </th>
+                    <th class="min-w-120">
+                        Temporal Scope End
+                        <a tabindex="0"
+                           type="button"
+                           class="info-button filter-description-popover"
+                           data-mdb-container="body"
+                           data-mdb-ripple-init
+                           data-mdb-popover-init
+                           data-mdb-trigger="hover"
+                           data-mdb-placement="right"
+                           data-mdb-content="The latest date for which this indicator is available.">
+                            <i class="far fa-circle-question"></i>
+                        </a>
+                    </th>
+                    <th>
+                        Temporal Granularity
+                        <a tabindex="0"
+                           type="button"
+                           class="info-button filter-description-popover"
+                           data-mdb-container="body"
+                           data-mdb-ripple-init
+                           data-mdb-popover-init
+                           data-mdb-trigger="hover"
+                           data-mdb-placement="right"
+                           data-mdb-content="The temporal resolution of this indicator (not of the reporting).  Might not be the same as Reporting Cadence (e.g. a daily indicator may be reported only once a week).">
+                            <i class="far fa-circle-question"></i>
+                        </a>
+                    </th>
+                    <th>
+                        Reporting Cadence
+                        <a tabindex="0"
+                           type="button"
+                           class="info-button filter-description-popover"
+                           data-mdb-container="body"
+                           data-mdb-ripple-init
+                           data-mdb-popover-init
+                           data-mdb-trigger="hover"
+                           data-mdb-placement="right"
+                           data-mdb-content="Frequency of reporting.  Might not be the same as Temporal Granularity (e.g. a daily indicator may be reported only once a week).">
+                            <i class="far fa-circle-question"></i>
+                        </a>
+                    </th>
+                    <th>
+                        Reporting Lag(nominal)
+                        <a tabindex="0"
+                           type="button"
+                           class="info-button filter-description-popover"
+                           data-mdb-container="body"
+                           data-mdb-ripple-init
+                           data-mdb-popover-init
+                           data-mdb-trigger="hover"
+                           data-mdb-placement="right"
+                           data-mdb-content="The number of days from the last day of a reported period until the first reported value for that period is usually available in Delphi Epidata.  E.g. if reporting U.S. epiweeks (Sunday through Saturday), and the first report is usually available in Delphi Epidata on the following Friday, The Reporting Lag is 6. By "
+                           "
+                           usually
+                           available
+                           "
+                           "
+                           we
+                           mean
+                           when
+                           it
+                           '
+                           s
+                           "
+                           "
+                           supposed
+                           to
+                           be
+                           "
+                           "
+                           available
+                           based
+                           on
+                           our
+                           current
+                           understanding
+                           of
+                           the
+                           data
+                           provider
+                           '
+                           s
+                           operations
+                           and
+                           Delphi
+                           '
+                           s
+                           ingestion
+                           pipeline.
+                           That
+                           is
+                           the
+                           date
+                           on
+                           which
+                           we
+                           think
+                           of
+                           the
+                           data
+                           as
+                           showing
+                           up
+                           "
+                           "
+                           on
+                           time
+                           "
+                           "
+                           and
+                           relative
+                           to
+                           which
+                           we
+                           track
+                           unusual
+                           delays.
+                           ">
+                            <i class="far fa-circle-question"></i>
+                        </a>
+                    </th>
+                    <th>
+                        Revision Cadence
+                        <a tabindex="0"
+                           type="button"
+                           class="info-button filter-description-popover"
+                           data-mdb-container="body"
+                           data-mdb-ripple-init
+                           data-mdb-popover-init
+                           data-mdb-trigger="hover"
+                           data-mdb-placement="right"
+                           data-mdb-content='How frequently are revised values (e.g. "backfill") usually reported (if any)?'>
+                            <i class="far fa-circle-question"></i>
+                        </a>
+                    </th>
+                    <th>
+                        Population
+                        <a tabindex="0"
+                           type="button"
+                           class="info-button filter-description-popover"
+                           data-mdb-container="body"
+                           data-mdb-ripple-init
+                           data-mdb-popover-init
+                           data-mdb-trigger="hover"
+                           data-mdb-placement="right"
+                           data-mdb-content='The population or demographic group reflected by the indicator ("All" means the entire population)'>
+                            <i class="far fa-circle-question"></i>
+                        </a>
+                    </th>
+                    <th>
+                        Population Stratifiers
+                        <a tabindex="0"
+                           type="button"
+                           class="info-button filter-description-popover"
+                           data-mdb-container="body"
+                           data-mdb-ripple-init
+                           data-mdb-popover-init
+                           data-mdb-trigger="hover"
+                           data-mdb-placement="right"
+                           data-mdb-content="What population or demographic stratifiers are available, if any?">
+                            <i class="far fa-circle-question"></i>
+                        </a>
+                    </th>
+                    <th>
+                        Surveillance Categories
+                        <a tabindex="0"
+                           type="button"
+                           class="info-button filter-description-popover"
+                           data-mdb-container="body"
+                           data-mdb-ripple-init
+                           data-mdb-popover-init
+                           data-mdb-trigger="hover"
+                           data-mdb-placement="right"
+                           data-mdb-content="Which surveillance categories or rungs in the Severity Pyramid does this indicator attempt to track?  Some indicators may approximately track multiple categories.">
+                            <i class="far fa-circle-question"></i>
+                        </a>
+                    </th>
+                    <th>
+                        Original Data Provider
+                        <a tabindex="0"
+                           type="button"
+                           class="info-button filter-description-popover"
+                           data-mdb-container="body"
+                           data-mdb-ripple-init
+                           data-mdb-popover-init
+                           data-mdb-trigger="hover"
+                           data-mdb-placement="right"
+                           data-mdb-content="The owner or supplier of the original or raw data used to create this indicator.">
+                            <i class="far fa-circle-question"></i>
+                        </a>
+                    </th>
+                    <th class="min-w-300">
+                        Pre-processing
+                        <a tabindex="0"
+                           type="button"
+                           class="info-button filter-description-popover"
+                           data-mdb-container="body"
+                           data-mdb-ripple-init
+                           data-mdb-popover-init
+                           data-mdb-trigger="hover"
+                           data-mdb-placement="right"
+                           data-mdb-content="Brief description of main data processing used in creating this set of indicators, including smoothing and aggregation.  For more details, see the documentation.">
+                            <i class="far fa-circle-question"></i>
+                        </a>
+                    </th>
+                    <th class="min-w-300">
+                        Censoring
+                        <a tabindex="0"
+                           type="button"
+                           class="info-button filter-description-popover"
+                           data-mdb-container="body"
+                           data-mdb-ripple-init
+                           data-mdb-popover-init
+                           data-mdb-trigger="hover"
+                           data-mdb-placement="right"
+                           data-mdb-content="Is any of the data being censored (e.g. small counts)?  If so how, and how much impact does it have (e.g. approximate fraction of values affected).">
+                            <i class="far fa-circle-question"></i>
+                        </a>
+                    </th>
+                    <th class="min-w-300">
+                        Missingness
+                        <a tabindex="0"
+                           type="button"
+                           class="info-button filter-description-popover"
+                           data-mdb-container="body"
+                           data-mdb-ripple-init
+                           data-mdb-popover-init
+                           data-mdb-trigger="hover"
+                           data-mdb-placement="right"
+                           data-mdb-content="">
+                            <i class="far fa-circle-question"></i>
+                        </a>
+                    </th>
+                    <th>DUA required?</th>
+                    <th>
+                        Data Use Terms
+                        <a tabindex="0"
+                           type="button"
+                           class="info-button filter-description-popover"
+                           data-mdb-container="body"
+                           data-mdb-ripple-init
+                           data-mdb-popover-init
+                           data-mdb-trigger="hover"
+                           data-mdb-placement="right"
+                           data-mdb-content="Applicable data use terms (may apply even to publicly accessible indicators).">
+                            <i class="far fa-circle-question"></i>
+                        </a>
+                    </th>
+                    <th>Documentation</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for signal_set in signal_sets %}
+                    <tr data-id="{{ signal_set.id }}"
+                        data-description="{{ signal_set.description }}">
+                        <td class="dt-control"></td>
+                        <td>
+                            <a data-mdb-tooltip-init title="{{ signal_set.description }}">{{ signal_set.name }}</a>
+                        </td>
+                        <td>
+                            {% for pathogen in signal_set.pathogens.all %}
+                                <span class="badge rounded-pill bg-dark">{{ pathogen }}</span>
+                            {% endfor %}
+                        </td>
+                        <td>{{ signal_set.geographic_scope }}</td>
+                        <td>
+                            {% for available_geography in signal_set.get_available_geographies %}
+                                <span class="badge rounded-pill bg-dark">{{ available_geography }}</span>
+                            {% endfor %}
+                        </td>
+                        <td>{{ signal_set.temporal_scope_start }}</td>
+                        <td>{{ signal_set.temporal_scope_end }}</td>
+                        <td>
+                            <span class="badge rounded-pill bg-dark">{{ signal_set.temporal_granularity }}</span>
+                        </td>
+                        <td>{{ signal_set.reporting_cadence }}</td>
+                        <td>{{ signal_set.reporting_lag }}</td>
+                        <td>{{ signal_set.revision_cadence }}</td>
+                        <td>{{ signal_set.demographic_scope }}</td>
+                        <td>{{ signal_set.demographic_granularity }}</td>
+                        <td>
+                            {% for severity_pyramid_rung in signal_set.severity_pyramid_rungs.all %}
+                                <span class="badge rounded-pill bg-dark">{{ severity_pyramid_rung }}</span>
+                            {% endfor %}
+                        </td>
+                        <td>{{ signal_set.data_source }}</td>
+                        <td>{{ signal_set.preprocessing_description }}</td>
+                        <td>{{ signal_set.censoring }}</td>
+                        <td>{{ signal_set.missingness }}</td>
+                        <td>{{ signal_set.dua_required }}</td>
+                        <td>{{ signal_set.license }}</td>
+                        <td>
+                            <a href="{{ signal_set.link_to_documentation }}" target="_blank">{{ signal_set.link_to_documentation }}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
