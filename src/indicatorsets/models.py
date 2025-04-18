@@ -202,5 +202,5 @@ class IndicatorSet(models.Model):
         return self.name
 
     @property
-    def get_available_geographies(self):
-        return [geo.display_name for geo in self.available_geographies.all()]
+    def get_geographic_levels(self):
+        return [geo.display_name for geo in self.geographic_levels.all()]

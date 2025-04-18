@@ -1,0 +1,10 @@
+{% extends "index.html" %}
+{% load i18n %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+    Indicator Sets
+{% endblock title %}
+{% block content %}
+    <div class="row">{% include "indicatorsets/filters.html" %}</div>
+{% endblock content %}

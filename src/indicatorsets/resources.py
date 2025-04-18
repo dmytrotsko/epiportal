@@ -20,6 +20,7 @@ def process_geographic_scope(row) -> None:
         )
         row["Geographic Coverage"] = geographic_scope_obj.id
 
+
 def process_severity_pyramid_rungs(row) -> None:
     if row["Surveillance Categories"]:
         severity_pyramid_rungs = row["Surveillance Categories"].split(",")

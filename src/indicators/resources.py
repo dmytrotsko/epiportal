@@ -13,7 +13,6 @@ from indicators.models import (
     Indicator,
     IndicatorGeography,
     IndicatorType,
-    OtherEndpointIndicator,
 )
 from indicatorsets.models import IndicatorSet
 
@@ -58,7 +57,7 @@ def process_indicator_type(row) -> None:
     if row["Indicator Type"]:
         indicator_type = row["Indicator Type"]
         indicator_type_obj, _ = IndicatorType.objects.get_or_create(name=indicator_type)
-        row["Indicator Type"] = indicator_type_obj
+        row["Indicator Type"] = indicator_type_obj.id
 
 
 def process_format_type(row) -> None:
@@ -68,7 +67,7 @@ def process_format_type(row) -> None:
     if row["Format"]:
         format_type = row["Format"].strip()
         format_type_obj, _ = FormatType.objects.get_or_create(name=format_type)
-        row["Format"] = format_type_obj
+        row["Format"] = format_type_obj.id
     else:
         row["Format"] = None
 
@@ -104,6 +103,7 @@ def process_category(row) -> None:
     if row["Category"]:
         category = row["Category"].strip()
         category_obj, _ = Category.objects.get_or_create(name=category)
+        row["Category"] = category_obj.id
 
 
 def process_geographic_scope(row) -> None:
@@ -126,7 +126,7 @@ def process_source(row) -> None:
     if row["Source Subdivision"]:
         source = row["Source Subdivision"]
         source_obj, _ = SourceSubdivision.objects.get_or_create(name=source)
-        row["Source Subdivision"] = source_obj
+        row["Source Subdivision"] = source_obj.id
 
 
 def process_available_geographies(row) -> None:
@@ -271,13 +271,13 @@ class IndicatorResource(ModelResource):
     indicator_type = Field(
         attribute="indicator_type",
         column_name="Indicator Type",
-        widget=ForeignKeyWidget(IndicatorType, field="name"),
+        widget=ForeignKeyWidget(IndicatorType),
     )
     active = Field(attribute="active", column_name="Active")
     format_type = Field(
         attribute="format_type",
         column_name="Format",
-        widget=ForeignKeyWidget(FormatType, field="name"),
+        widget=ForeignKeyWidget(FormatType),
     )
     time_type = Field(attribute="time_type", column_name="Time Type")
     time_label = Field(attribute="time_label", column_name="Time Label")
@@ -299,7 +299,7 @@ class IndicatorResource(ModelResource):
     category = Field(
         attribute="category",
         column_name="Category",
-        widget=ForeignKeyWidget(Category, field="name"),
+        widget=ForeignKeyWidget(Category),
     )
     geographic_scope = Field(
         attribute="geographic_scope",
@@ -332,7 +332,7 @@ class IndicatorResource(ModelResource):
     source = Field(
         attribute="source",
         column_name="Source Subdivision",
-        widget=ForeignKeyWidget(SourceSubdivision, field="name"),
+        widget=ForeignKeyWidget(SourceSubdivision),
     )
     data_censoring = Field(attribute="data_censoring", column_name="Data Censoring")
     missingness = Field(attribute="missingness", column_name="Missingness")
@@ -440,13 +440,13 @@ class OtherEndpointIndicatorResource(ModelResource):
     indicator_type = Field(
         attribute="indicator_type",
         column_name="Indicator Type",
-        widget=ForeignKeyWidget(IndicatorType, field="name"),
+        widget=ForeignKeyWidget(IndicatorType),
     )
     active = Field(attribute="active", column_name="Active")
     format_type = Field(
         attribute="format_type",
         column_name="Format",
-        widget=ForeignKeyWidget(FormatType, field="name"),
+        widget=ForeignKeyWidget(FormatType),
     )
     time_type = Field(attribute="time_type", column_name="Time Type")
     time_label = Field(attribute="time_label", column_name="Time Label")
@@ -468,7 +468,7 @@ class OtherEndpointIndicatorResource(ModelResource):
     category = Field(
         attribute="category",
         column_name="Category",
-        widget=ForeignKeyWidget(Category, field="name"),
+        widget=ForeignKeyWidget(Category),
     )
     geographic_scope = Field(
         attribute="geographic_scope",
@@ -501,7 +501,7 @@ class OtherEndpointIndicatorResource(ModelResource):
     source = Field(
         attribute="source",
         column_name="Source Subdivision",
-        widget=ForeignKeyWidget(SourceSubdivision, field="name"),
+        widget=ForeignKeyWidget(SourceSubdivision),
     )
     data_censoring = Field(attribute="data_censoring", column_name="Data Censoring")
     missingness = Field(attribute="missingness", column_name="Missingness")

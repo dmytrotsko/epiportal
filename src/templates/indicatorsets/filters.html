@@ -1,0 +1,294 @@
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load static %}
+<div class="col-2">
+    <form method="get" id="filterSignalSetsForm">
+        <div class="card">
+            <div class="card-body no-padding-top-bottom">
+                <span id="totalRowsNumber"></span>
+                <div class="colvis" id="colvis"></div>
+                <h2 class="card-title font-size-25">Filters</h2>
+                <div class="accordion accordion-flush" id="accordionSignalSetFilters">
+                    <div class="accordion-item">
+                        <p class="accordion-header" id="flush-heading_location_search">
+                            Location(s):
+                            <a tabindex="0"
+                               type="button"
+                               class="info-button filter-description-popover"
+                               data-mdb-container="body"
+                               data-mdb-ripple-init
+                               data-mdb-popover-init
+                               data-mdb-trigger="hover"
+                               data-mdb-placement="right"
+                               data-mdb-content="Enter one or more locations for which you are looking for indicator coverage, or leave empty for all locations.  Start entering a location name to see all compatible locations.  Auto-complete with [Tab] or [Enter].  Currently works only for U.S. locations.">
+                                <i class="far fa-circle-question"></i>
+                            </a>
+                        </p>
+                        <div id="flush-collapse_location_search"
+                             aria-labelledby="flush-heading_location_search"
+                             data-mdb-parent="#accordionSignalSetFilters">
+                            <div class="accordion-body margin-top-1rem">
+                                <div class="input-group">
+                                    <select id="location_search"
+                                            name="location_search"
+                                            class="form-select"
+                                            multiple="multiple"></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header"
+                            id="flush-heading_{{ form.pathogens.auto_id }}">
+                            <button data-mdb-collapse-init
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-mdb-toggle="collapse"
+                                    data-mdb-target="#flush-collapse_{{ form.pathogens.auto_id }}"
+                                    aria-expanded="false"
+                                    aria-controls="flush-collapse_{{ form.pathogens.auto_id }}">
+                                Pathogens/Syndromes
+                                <a tabindex="0"
+                                   type="button"
+                                   class="info-button filter-description-popover"
+                                   data-mdb-container="body"
+                                   data-mdb-ripple-init
+                                   data-mdb-popover-init
+                                   data-mdb-trigger="hover"
+                                   data-mdb-placement="right"
+                                   data-mdb-content="List only indicators related to these pathogens, syndromes or diseases.">
+                                    <i class="far fa-circle-question"></i>
+                                </a>
+                            </button>
+                        </h2>
+                        <div id="flush-collapse_{{ form.pathogens.auto_id }}"
+                             class="accordion-collapse {% if form.pathogens.value %} {% else %}collapse{% endif %}"
+                             aria-labelledby="flush-heading_{{ form.pathogens.auto_id }}"
+                             data-mdb-parent="#accordionSignalSetFilters">
+                            <div class="accordion-body margin-top-1rem">
+                                <div class="bulk-select form-check">
+                                    <input type="checkbox" class="form-check-input" id="select-all" />
+                                    <label class="form-check-label" for="select-all">Select all</label>
+                                </div>
+                                {{ form.pathogens|as_crispy_field }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header"
+                            id="flush-heading_{{ form.geographic_scope.auto_id }}">
+                            <button data-mdb-collapse-init
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-mdb-toggle="collapse"
+                                    data-mdb-target="#flush-collapse_{{ form.geographic_scope.auto_id }}"
+                                    aria-expanded="false"
+                                    aria-controls="flush-collapse_{{ form.geographic_scope.auto_id }}">
+                                Geographic Coverage
+                                <a tabindex="0"
+                                   type="button"
+                                   class="info-button filter-description-popover"
+                                   data-mdb-container="body"
+                                   data-mdb-ripple-init
+                                   data-mdb-popover-init
+                                   data-mdb-trigger="hover"
+                                   data-mdb-placement="right"
+                                   data-mdb-content="List only indicators that cover any of the selected countries or world regions.">
+                                    <i class="far fa-circle-question"></i>
+                                </a>
+                            </button>
+                        </h2>
+                        <div id="flush-collapse_{{ form.geographic_scope.auto_id }}"
+                             class="accordion-collapse {% if form.geographic_scope.value %} {% else %}collapse{% endif %}"
+                             aria-labelledby="flush-heading_{{ form.geographic_scope.auto_id }}"
+                             data-mdb-parent="#accordionSignalSetFilters">
+                            <div class="accordion-body margin-top-1rem">
+                                <div class="bulk-select form-check">
+                                    <input type="checkbox" class="form-check-input" id="select-all" />
+                                    <label class="form-check-label" for="select-all">Select all</label>
+                                </div>
+                                {{ form.geographic_scope|as_crispy_field }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header"
+                            id="flush-heading_{{ form.geographic_levels.auto_id }}">
+                            <button data-mdb-collapse-init
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-mdb-toggle="collapse"
+                                    data-mdb-target="#flush-collapse_{{ form.geographic_levels.auto_id }}"
+                                    aria-expanded="false"
+                                    aria-controls="flush-collapse_{{ form.geographic_levels.auto_id }}">
+                                Geographic Level
+                                <a tabindex="0"
+                                   type="button"
+                                   class="info-button filter-description-popover"
+                                   data-mdb-container="body"
+                                   data-mdb-ripple-init
+                                   data-mdb-popover-init
+                                   data-mdb-trigger="hover"
+                                   data-mdb-placement="right"
+                                   data-mdb-content="List only indicators that are available at any of the selected geographic levels.">
+                                    <i class="far fa-circle-question"></i>
+                                </a>
+                            </button>
+                        </h2>
+                        <div id="flush-collapse_{{ form.geographic_levels.auto_id }}"
+                             class="accordion-collapse {% if form.geographic_levels.value %} {% else %}collapse{% endif %}"
+                             aria-labelledby="flush-heading_{{ form.geographic_levels.auto_id }}"
+                             data-mdb-parent="#accordionSignalSetFilters">
+                            <div class="accordion-body margin-top-1rem">
+                                <div class="bulk-select form-check">
+                                    <input type="checkbox" class="form-check-input" id="select-all" />
+                                    <label class="form-check-label" for="select-all">Select all</label>
+                                </div>
+                                {{ form.geographic_levels|as_crispy_field }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header"
+                            id="flush-heading_{{ form.temporal_granularity.auto_id }}">
+                            <button data-mdb-collapse-init
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-mdb-toggle="collapse"
+                                    data-mdb-target="#flush-collapse_{{ form.temporal_granularity.auto_id }}"
+                                    aria-expanded="false"
+                                    aria-controls="flush-collapse_{{ form.temporal_granularity.auto_id }}">
+                                Temporal Granularity
+                                <a tabindex="0"
+                                   type="button"
+                                   class="info-button filter-description-popover"
+                                   data-mdb-container="body"
+                                   data-mdb-ripple-init
+                                   data-mdb-popover-init
+                                   data-mdb-trigger="hover"
+                                   data-mdb-placement="right"
+                                   data-mdb-content="List only indicators that are available at any of the selected temporal levels.">
+                                    <i class="far fa-circle-question"></i>
+                                </a>
+                            </button>
+                        </h2>
+                        <div id="flush-collapse_{{ form.temporal_granularity.auto_id }}"
+                             class="accordion-collapse {% if form.temporal_granularity.value %} {% else %}collapse{% endif %}"
+                             aria-labelledby="flush-heading_{{ form.temporal_granularity.auto_id }}"
+                             data-mdb-parent="#accordionSignalSetFilters">
+                            <div class="accordion-body margin-top-1rem">{{ form.temporal_granularity|as_crispy_field }}</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header"
+                            id="flush-heading_{{ form.severity_pyramid_rungs.auto_id }}">
+                            <button data-mdb-collapse-init
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-mdb-toggle="collapse"
+                                    data-mdb-target="#flush-collapse_{{ form.severity_pyramid_rungs.auto_id }}"
+                                    aria-expanded="false"
+                                    aria-controls="flush-collapse_{{ form.severity_pyramid_rungs.auto_id }}">
+                                Surveillance Category
+                                <a tabindex="0"
+                                   type="button"
+                                   class="info-button filter-description-popover"
+                                   data-mdb-container="body"
+                                   data-mdb-ripple-init
+                                   data-mdb-popover-init
+                                   data-mdb-trigger="hover"
+                                   data-mdb-placement="right"
+                                   data-mdb-content="List only indicators that are directly related to any of the selected rungs.">
+                                    <i class="far fa-circle-question"></i>
+                                </a>
+                            </button>
+                        </h2>
+                        <div id="flush-collapse_{{ form.severity_pyramid_rungs.auto_id }}"
+                             class="accordion-collapse {% if form.severity_pyramid_rungs.value %} {% else %}collapse{% endif %}"
+                             aria-labelledby="flush-heading_{{ form.severity_pyramid_rungs.auto_id }}"
+                             data-mdb-parent="#accordionSignalSetFilters">
+                            <div class="accordion-body margin-top-1rem">
+                                <div class="bulk-select form-check">
+                                    <input type="checkbox" class="form-check-input" id="select-all" />
+                                    <label class="form-check-label" for="select-all">Select all</label>
+                                </div>
+                                {{ form.severity_pyramid_rungs|as_crispy_field }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header"
+                            id="flush-heading_{{ form.original_data_provider.auto_id }}">
+                            <button data-mdb-collapse-init
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-mdb-toggle="collapse"
+                                    data-mdb-target="#flush-collapse_{{ form.original_data_provider.auto_id }}"
+                                    aria-expanded="false"
+                                    aria-controls="flush-collapse_{{ form.original_data_provider.auto_id }}">
+                                Original Data Provider
+                                <a tabindex="0"
+                                   type="button"
+                                   class="info-button filter-description-popover"
+                                   data-mdb-container="body"
+                                   data-mdb-ripple-init
+                                   data-mdb-popover-init
+                                   data-mdb-trigger="hover"
+                                   data-mdb-placement="right"
+                                   data-mdb-content="List only indicator that are based on data from one of the selected sources.">
+                                    <i class="far fa-circle-question"></i>
+                                </a>
+                            </button>
+                        </h2>
+                        <div id="flush-collapse_{{ form.original_data_provider.auto_id }}"
+                             class="accordion-collapse {% if form.original_data_provider.value %} {% else %}collapse{% endif %}"
+                             aria-labelledby="flush-heading_{{ form.original_data_provider.auto_id }}"
+                             data-mdb-parent="#accordionSignalSetFilters">
+                            <div class="accordion-body margin-top-1rem">
+                                <div class="bulk-select form-check">
+                                    <input type="checkbox" class="form-check-input" id="select-all" />
+                                    <label class="form-check-label" for="select-all">Select all</label>
+                                </div>
+                                {{ form.original_data_provider|as_crispy_field }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group margin-top-1rem">
+                        {{ form.temporal_scope_end|as_crispy_field }}
+                        <a tabindex="0"
+                           type="button"
+                           class="info-button filter-description-popover margin-left-10"
+                           data-mdb-container="body"
+                           data-mdb-ripple-init
+                           data-mdb-popover-init
+                           data-mdb-trigger="hover"
+                           data-mdb-placement="right"
+                           data-mdb-content="List only indicators that are currently actively ingested.">
+                            <i class="far fa-circle-question"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body no-padding-top">
+                    <div class="d-grid gap-2 mt-3">
+                        <button id="filter-submit" type="submit" class="btn btn-primary">{% trans "Apply Filters" %}</button>
+                        <div class="margin-left-right-auto">
+                            <a href="{% url 'indicatorsets' %}">Clear filters</a>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="d-grid gap-2 mt-3 smaller-font-size">
+                        <div>
+                            <a href="https://forms.gle/WV4Ndhc3ftvkkgVCA">Report a Data Problem</a>
+                        </div>
+                        <div>
+                            <a href="https://forms.gle/cMG7v7uUrnLVszRu5">Suggest a New Data Source</a>
+                        </div>
+                        <div>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScqgT1fKZr5VWBfsaSp-DNaN03aV6EoZU4YljIzHJ1Wl_zmtg/viewform">Other Feedback or Suggestion</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
