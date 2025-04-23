@@ -3,7 +3,7 @@ import logging
 
 import django_filters
 from django.db.models import Q
-from django_filters.widgets import BooleanWidget, QueryArrayWidget
+from django_filters.widgets import QueryArrayWidget
 
 
 from indicatorsets.models import IndicatorSet
