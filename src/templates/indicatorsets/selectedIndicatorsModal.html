@@ -1,0 +1,124 @@
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load dict_get %}
+<div class="modal fade"
+     id="selectedIndicatorsModal"
+     tabindex="-1"
+     aria-labelledby="selectedIndicatorsModalLabel">
+    <div class="modal-dialog modal-xl modal-fullscreen-xl-down">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="selectedIndicatorsModalLabel">Selected indicators</h5>
+                <button type="button"
+                        class="btn-close"
+                        data-mdb-ripple-init
+                        data-mdb-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Indicator Set name</th>
+                            <th scope="col">Indicator name</th>
+                        </tr>
+                    </thead>
+                    <tbody id="selectedIndicatorsList">
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <form class="margin-top-1rem full-width"
+                      id="dataForm"
+                      onsubmit="submitMode(event)">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div id="warning-alert"></div>
+                        <div class="col-2">
+                            <label class="form-label">Select Mode:</label>
+                        </div>
+                        <div class="col-10">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input"
+                                       type="radio"
+                                       name="modes"
+                                       id="epivis"
+                                       value="epivis"
+                                       checked>
+                                <label class="form-check-label" for="epivis">Plot data</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input"
+                                       type="radio"
+                                       name="modes"
+                                       id="export"
+                                       value="export">
+                                <label class="form-check-label" for="export">Export data</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input"
+                                       type="radio"
+                                       name="modes"
+                                       id="preview"
+                                       value="preview">
+                                <label class="form-check-label" for="preview">Preview Data</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row margin-top-1rem">
+                        <div class="col-2">
+                            <label for="geographic_value" class="col-form-label">Location(s):</label>
+                        </div>
+                        <div class="col-10">
+                            <select id="geographic_value"
+                                    name="geographic_value"
+                                    class="form-select"
+                                    multiple="multiple"></select>
+                        </div>
+                    </div>
+                    <div class="row margin-top-1rem" name="choose_date">
+                        <div class="col-2">
+                            <label for="start_date" class="form-label">Start Date:</label>
+                        </div>
+                        <div class="col-10">
+                            <input type="date"
+                                   class="form-control"
+                                   id="start_date"
+                                   name="start_date"
+                                   value="2016-01-01">
+                        </div>
+                    </div>
+                    <div class="row margin-top-1rem" name="choose_date">
+                        <div class="col-2">
+                            <label for="end_date" class="form-label">End Date:</label>
+                        </div>
+                        <div class="col-10">
+                            <input type="date"
+                                   class="form-control"
+                                   id="end_date"
+                                   name="end_date"
+                                   value="2029-01-01">
+                        </div>
+                    </div>
+                    <div class="row margin-top-1rem">
+                        <div id="differentLocationNote"></div>
+                        <div id="otherEndpointLocations"></div>
+                    </div>
+                    <div class="row">
+                        <button type="submit"
+                                id="processSelectedIndicators"
+                                value="Submit"
+                                class="btn btn-primary margin-top-1rem"
+                                data-mdb-ripple-init>Submit</button>
+                    </div>
+                    <div id="loader" class="loader margin-top-1rem" style="display: none;"></div>
+                    <div class="row margin-top-1rem">
+                        <pre class="margin-top-1rem"><code id="modeSubmitResult"></code></pre>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/selectedIndicatorsModal.js' %}"></script>

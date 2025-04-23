@@ -6,8 +6,8 @@
             "geo_id": "US",
             "name": "United States",
             "display_name": "United States",
-            "level": 5,
-            "geo_level": 5
+            "level": 1,
+            "geo_level": 1
         }
     }
 ]

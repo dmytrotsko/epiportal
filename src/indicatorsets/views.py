@@ -6,6 +6,7 @@ from django.conf import settings
 
 from indicatorsets.models import IndicatorSet
 from indicatorsets.forms import IndicatorSetFilterForm
+from indicatorsets.filters import IndicatorSetFilter
 from base.models import Geography, GeographyUnit
 
 logger = logging.getLogger(__name__)
@@ -21,10 +22,29 @@ FILTERS_DESCRIPTIONS = {
     "location_search": "Enter one or more locations for which you are looking for indicator coverage, or leave empty for all locations.  Start entering a location name to see all compatible locations.  Auto-complete with [Tab] or [Enter].  Currently works only for U.S. locations.",
 }
 
+COLUMNS_DESCRIPTIONS = {
+    "name": "Hover over the indicator's name to see a brief description.",
+    "geographic_coverage": "The countries or world regions covered by this indicator.  These are typically covered at finer geographic levels / jurisdictions.",
+    "geographic_levels": "All the geographic levels at which this indicator is available.  Larger jurisdictions are often based on aggregation of data from constituent jurisdictions.",
+    "temporal_scope_start": "The earliest date for which this indicator is available.",
+    "temporal_scope_end": "The latest date for which this indicator is available.",
+    "temporal_granularity": "The temporal resolution of this indicator (not of the reporting).  Might not be the same as Reporting Cadence (e.g. a daily indicator may be reported only once a week).",
+    "reporting_cadence": "The frequency with which this indicator is reported.  This may be different from the temporal granularity.",
+    "reporting_lag": 'The number of days from the last day of a reported period until the first reported value for that period is usually available in Delphi Epidata.  E.g. if reporting U.S. epiweeks (Sunday through Saturday), and the first report is usually available in Delphi Epidata on the following Friday, The Reporting Lag is 6. By "usually available" we mean when it\'s "supposed to be" available based on our current understanding of the data provider\'s operations and Delphi\'s ingestion pipeline.  That is the date on which we think of the data as showing up "on time", and relative to which we track unusual delays.',
+    "revision_cadende": 'How frequently are revised values (e.g. "backfill") usually reported (if any)?',
+    "population": 'The population or demographic group reflected by the indicator ("All" means the entire population)',
+    "population_stratifiers": "What population or demographic stratifiers are available, if any?",
+    "surveillance_categories": "Which surveillance categories or rungs in the Severity Pyramid does this indicator attempt to track?  Some indicators may approximately track multiple categories.",
+    "original_data_provider": "The owner or supplier of the original or raw data used to create this indicator.",
+    "pre_processing": "Brief description of main data processing used in creating this set of indicators, including smoothing and aggregation.  For more details, see the documentation.",
+    "censoring": "Is any of the data being censored (e.g. small counts)?  If so how, and how much impact does it have (e.g. approximate fraction of values affected).",
+    "dua_required": "Applicable data use terms (may apply even to publicly accessible indicators).",
+}
+
 
 class IndicatorSetListView(ListView):
     model = IndicatorSet
-    template_name = "indicatorsets/indicatorsets.html"
+    template_name = "indicatorsets/indicatorSets.html"
     context_object_name = "indicatorsets"
 
     def get_queryset(self):
@@ -48,44 +68,89 @@ class IndicatorSetListView(ListView):
                     "member_name": indicator.member_name,
                     "member_short_name": indicator.member_short_name,
                     "name": indicator.name,
-                    "indicator_set": indicator.signal_set.id,
-                    "indicator_set_name": indicator.signal_set.name,
-                    "indicator_set_short_name": indicator.signal_set.short_name,
-                    "endpoint": indicator.signal_set.endpoint,
+                    "indicator_set": indicator.indicator_set.id,
+                    "indicator_set_name": indicator.indicator_set.name,
+                    "indicator_set_short_name": indicator.indicator_set.short_name,
+                    "endpoint": indicator.indicator_set.epidata_endpoint,
                     "source": indicator.source.name,
                     "time_type": indicator.time_type,
                     "description": indicator.description,
                     "member_description": indicator.member_description,
-                    "restricted": indicator.signal_set.dua_required,
+                    "restricted": indicator.indicator_set.dua_required,
                 }
             )
         return related_indicators
 
+    def get_url_params(self):
+        url_params_dict = {
+            "pathogens": (
+                [int(el) for el in self.request.GET.getlist("pathogens")]
+                if self.request.GET.get("pathogens")
+                else ""
+            ),
+            "geographic_scope": (
+                [el for el in self.request.GET.getlist("geographic_scope")]
+                if self.request.GET.get("geographic_scope")
+                else ""
+            ),
+            "severity_pyramid_rungs": (
+                [el for el in self.request.GET.getlist("severity_pyramid_rungs")]
+                if self.request.GET.get("severity_pyramid_rungs")
+                else ""
+            ),
+            "data_source": [el for el in self.request.GET.getlist("data_source")],
+            "temporal_granularity": (
+                [el for el in self.request.GET.getlist("temporal_granularity")]
+                if self.request.GET.get("temporal_granularity")
+                else ""
+            ),
+            "available_geographies": (
+                [el for el in self.request.GET.getlist("available_geographies")]
+                if self.request.GET.get("available_geographies")
+                else ""
+            ),
+            "temporal_scope_end": (
+                self.request.GET.get("temporal_scope_end")
+                if self.request.GET.get("temporal_scope_end")
+                else ""
+            ),
+            "location_search": (
+                [el for el in self.request.GET.getlist("location_search")]
+                if self.request.GET.get("location_search")
+                else ""
+            ),
+        }
+        url_params_str = ""
+        for param_name, param_value in url_params_dict.items():
+            if isinstance(param_value, list):
+                for value in param_value:
+                    url_params_str = f"{url_params_str}&{param_name}={value}"
+            else:
+                if param_value not in ["", None]:
+                    url_params_str = f"{url_params_str}&{param_name}={param_value}"
+        return url_params_dict, url_params_str
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         queryset = self.get_queryset()
-        # url_params_dict, url_params_str = self.get_url_params()
-        # filter = SignalSetFilter(self.request.GET, queryset=queryset)
-        # context["url_params_dict"] = url_params_dict
-        # context["url_params_str"] = url_params_str
+        url_params_dict, _ = self.get_url_params()
+        filter = IndicatorSetFilter(self.request.GET, queryset=queryset)
+        context["url_params_dict"] = url_params_dict
         context["epivis_url"] = settings.EPIVIS_URL
         context["epidata_url"] = settings.EPIDATA_URL
-        # context["form"] = SignalSetFilterForm(initial=url_params_dict)
-        context["form"] = IndicatorSetFilterForm()
-        # context["filter"] = filter
-        # context["signal_sets"] = filter.qs
-        # context["related_signals"] = json.dumps(
-        #     self.get_related_indicators(
-        #         filter.signals_qs, filter.qs.values_list("id", flat=True)
-        #     )
-        # )
-        # context["related_signals"] = json.dumps(
-        #     self.get_related_indicators(
-        #         queryset=queryset, indicator_set_ids=queryset.values_list("id", flat=True)
-        #     )
-        # )
+        context["form"] = IndicatorSetFilterForm(initial=url_params_dict)
+        context["filter"] = filter
+        context["indicator_sets"] = filter.qs
+        context["related_indicators"] = json.dumps(
+            self.get_related_indicators(
+                filter.indicators_qs, filter.qs.values_list("id", flat=True)
+            )
+        )
         context["filters_descriptions"] = FILTERS_DESCRIPTIONS
-        context["available_geographies"] = Geography.objects.filter(used_in="signals")
+        context["columns_descriptions"] = COLUMNS_DESCRIPTIONS
+        context["available_geographies"] = Geography.objects.filter(
+            used_in="indicators"
+        )
         context["geographic_granularities"] = [
             {
                 "id": str(geo_unit.geo_id),

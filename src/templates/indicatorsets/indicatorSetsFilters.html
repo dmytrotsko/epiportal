@@ -3,13 +3,13 @@
 {% load static %}
 {% load dict_get %}
 <div class="col-2">
-    <form method="get" id="filterSignalSetsForm">
+    <form method="get" id="filterIndicatorSetsForm">
         <div class="card">
             <div class="card-body no-padding-top-bottom">
                 <span id="totalRowsNumber"></span>
                 <div class="colvis" id="colvis"></div>
                 <h2 class="card-title font-size-25">Filters</h2>
-                <div class="accordion accordion-flush" id="accordionSignalSetFilters">
+                <div class="accordion accordion-flush" id="accordionIndicatorSetFilters">
                     <div class="accordion-item">
                         <p class="accordion-header" id="flush-heading_location_search">
                             Location(s):
@@ -27,7 +27,7 @@
                         </p>
                         <div id="flush-collapse_location_search"
                              aria-labelledby="flush-heading_location_search"
-                             data-mdb-parent="#accordionSignalSetFilters">
+                             data-mdb-parent="#accordionIndicatorSetFilters">
                             <div class="accordion-body margin-top-1rem">
                                 <div class="input-group">
                                     <select id="location_search"
@@ -65,7 +65,7 @@
                         <div id="flush-collapse_{{ form.pathogens.auto_id }}"
                              class="accordion-collapse {% if form.pathogens.value %} {% else %}collapse{% endif %}"
                              aria-labelledby="flush-heading_{{ form.pathogens.auto_id }}"
-                             data-mdb-parent="#accordionSignalSetFilters">
+                             data-mdb-parent="#accordionIndicatorSetFilters">
                             <div class="accordion-body margin-top-1rem">
                                 <div class="bulk-select form-check">
                                     <input type="checkbox" class="form-check-input" id="select-all" />
@@ -102,7 +102,7 @@
                         <div id="flush-collapse_{{ form.geographic_scope.auto_id }}"
                              class="accordion-collapse {% if form.geographic_scope.value %} {% else %}collapse{% endif %}"
                              aria-labelledby="flush-heading_{{ form.geographic_scope.auto_id }}"
-                             data-mdb-parent="#accordionSignalSetFilters">
+                             data-mdb-parent="#accordionIndicatorSetFilters">
                             <div class="accordion-body margin-top-1rem">
                                 <div class="bulk-select form-check">
                                     <input type="checkbox" class="form-check-input" id="select-all" />
@@ -139,7 +139,7 @@
                         <div id="flush-collapse_{{ form.geographic_levels.auto_id }}"
                              class="accordion-collapse {% if form.geographic_levels.value %} {% else %}collapse{% endif %}"
                              aria-labelledby="flush-heading_{{ form.geographic_levels.auto_id }}"
-                             data-mdb-parent="#accordionSignalSetFilters">
+                             data-mdb-parent="#accordionIndicatorSetFilters">
                             <div class="accordion-body margin-top-1rem">
                                 <div class="bulk-select form-check">
                                     <input type="checkbox" class="form-check-input" id="select-all" />
@@ -176,7 +176,7 @@
                         <div id="flush-collapse_{{ form.temporal_granularity.auto_id }}"
                              class="accordion-collapse {% if form.temporal_granularity.value %} {% else %}collapse{% endif %}"
                              aria-labelledby="flush-heading_{{ form.temporal_granularity.auto_id }}"
-                             data-mdb-parent="#accordionSignalSetFilters">
+                             data-mdb-parent="#accordionIndicatorSetFilters">
                             <div class="accordion-body margin-top-1rem">{{ form.temporal_granularity|as_crispy_field }}</div>
                         </div>
                     </div>
@@ -207,7 +207,7 @@
                         <div id="flush-collapse_{{ form.severity_pyramid_rungs.auto_id }}"
                              class="accordion-collapse {% if form.severity_pyramid_rungs.value %} {% else %}collapse{% endif %}"
                              aria-labelledby="flush-heading_{{ form.severity_pyramid_rungs.auto_id }}"
-                             data-mdb-parent="#accordionSignalSetFilters">
+                             data-mdb-parent="#accordionIndicatorSetFilters">
                             <div class="accordion-body margin-top-1rem">
                                 <div class="bulk-select form-check">
                                     <input type="checkbox" class="form-check-input" id="select-all" />
@@ -244,7 +244,7 @@
                         <div id="flush-collapse_{{ form.original_data_provider.auto_id }}"
                              class="accordion-collapse {% if form.original_data_provider.value %} {% else %}collapse{% endif %}"
                              aria-labelledby="flush-heading_{{ form.original_data_provider.auto_id }}"
-                             data-mdb-parent="#accordionSignalSetFilters">
+                             data-mdb-parent="#accordionIndicatorSetFilters">
                             <div class="accordion-body margin-top-1rem">
                                 <div class="bulk-select form-check">
                                     <input type="checkbox" class="form-check-input" id="select-all" />
@@ -293,10 +293,12 @@
         </div>
     </form>
 </div>
-<script src="{% static 'js/indicatorsets_filters.js' %}"></script>
+<script src="{% static 'js/select2_init.js' %}"></script>
+<script src="{% static 'js/indicatorSetsFilters.js' %}"></script>
 <script>
     $(document).ready(function() {
         const geoValues = {{ geographic_granularities|safe }};
+        var urlParams = JSON.parse(JSON.stringify({{ url_params_dict|safe }}));
         const locationSearchValues = geoValues.map(item => {
             return {
                 ...item,
@@ -304,5 +306,11 @@
             }
         });
         initSelect2('location_search', locationSearchValues);
+        if (urlParams.location_search != "") {
+            var locationSearch = urlParams.location_search; 
+            $("#location_search").val(locationSearch).trigger("change");
+            var locationIds = locationSearch.map((item) => item.split(":")[1]);
+            $('#geographic_value').val(locationIds).trigger('change');
+        }
     })
 </script>

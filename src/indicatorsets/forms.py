@@ -4,7 +4,16 @@ from base.models import Pathogen, GeographicScope, Geography, SeverityPyramidRun
 from indicatorsets.models import IndicatorSet
 
 
-
+try:
+    ORIGINAL_DATA_PROVIDER_CHOICES = [
+        (el, el)
+        for el in set(
+            IndicatorSet.objects.values_list("original_data_provider", flat=True)
+        )
+    ]
+except Exception as e:
+    ORIGINAL_DATA_PROVIDER_CHOICES = [("", "No original data provider available")]
+    print(f"Error fetching original data provider choices: {e}")
 
 
 class IndicatorSetFilterForm(forms.ModelForm):
@@ -35,12 +44,7 @@ class IndicatorSetFilterForm(forms.ModelForm):
     )
 
     original_data_provider = forms.ChoiceField(
-        choices=[
-            (el, el)
-            for el in set(
-                IndicatorSet.objects.values_list("original_data_provider", flat=True)
-            )
-        ],
+        choices=ORIGINAL_DATA_PROVIDER_CHOICES,
         widget=forms.CheckboxSelectMultiple(),
     )
 

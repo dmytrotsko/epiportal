@@ -6,8 +6,8 @@
             "geo_id": "1",
             "name": "Birmingham",
             "display_name": "AL - Birmingham (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -17,8 +17,8 @@
             "geo_id": "10",
             "name": "Anchorage",
             "display_name": "AK - Anchorage (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -28,8 +28,8 @@
             "geo_id": "101",
             "name": "Boulder",
             "display_name": "CO - Boulder (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -39,8 +39,8 @@
             "geo_id": "102",
             "name": "Colorado Springs",
             "display_name": "CO - Colorado Springs (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -50,8 +50,8 @@
             "geo_id": "103",
             "name": "Denver",
             "display_name": "CO - Denver (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -61,8 +61,8 @@
             "geo_id": "104",
             "name": "Fort Collins",
             "display_name": "CO - Fort Collins (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -72,8 +72,8 @@
             "geo_id": "105",
             "name": "Grand Junction",
             "display_name": "CO - Grand Junction (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -83,8 +83,8 @@
             "geo_id": "106",
             "name": "Greeley",
             "display_name": "CO - Greeley (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -94,8 +94,8 @@
             "geo_id": "107",
             "name": "Pueblo",
             "display_name": "CO - Pueblo (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -105,8 +105,8 @@
             "geo_id": "109",
             "name": "Bridgeport",
             "display_name": "CT - Bridgeport (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -116,8 +116,8 @@
             "geo_id": "11",
             "name": "Mesa",
             "display_name": "AZ - Mesa (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -127,8 +127,8 @@
             "geo_id": "110",
             "name": "Hartford",
             "display_name": "CT - Hartford (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -138,8 +138,8 @@
             "geo_id": "111",
             "name": "New Haven",
             "display_name": "CT - New Haven (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -149,8 +149,8 @@
             "geo_id": "112",
             "name": "Wilmington",
             "display_name": "DE - Wilmington (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -160,8 +160,8 @@
             "geo_id": "113",
             "name": "Washington",
             "display_name": "DC - Washington (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -171,8 +171,8 @@
             "geo_id": "115",
             "name": "Bradenton",
             "display_name": "FL - Bradenton (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -182,8 +182,8 @@
             "geo_id": "116",
             "name": "Clearwater",
             "display_name": "FL - Clearwater (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -193,8 +193,8 @@
             "geo_id": "118",
             "name": "Fort Lauderdale",
             "display_name": "FL - Fort Lauderdale (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -204,8 +204,8 @@
             "geo_id": "119",
             "name": "Fort Myers",
             "display_name": "FL - Fort Myers (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -215,8 +215,8 @@
             "geo_id": "12",
             "name": "Phoenix",
             "display_name": "AZ - Phoenix (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -226,8 +226,8 @@
             "geo_id": "120",
             "name": "Gainesville",
             "display_name": "FL - Gainesville (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -237,8 +237,8 @@
             "geo_id": "122",
             "name": "Hudson",
             "display_name": "FL - Hudson (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -248,8 +248,8 @@
             "geo_id": "123",
             "name": "Jacksonville",
             "display_name": "FL - Jacksonville (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -259,8 +259,8 @@
             "geo_id": "124",
             "name": "Lakeland",
             "display_name": "FL - Lakeland (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -270,8 +270,8 @@
             "geo_id": "127",
             "name": "Miami",
             "display_name": "FL - Miami (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -281,8 +281,8 @@
             "geo_id": "129",
             "name": "Ocala",
             "display_name": "FL - Ocala (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -292,8 +292,8 @@
             "geo_id": "130",
             "name": "Orlando",
             "display_name": "FL - Orlando (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -303,8 +303,8 @@
             "geo_id": "131",
             "name": "Ormond Beach",
             "display_name": "FL - Ormond Beach (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -314,8 +314,8 @@
             "geo_id": "133",
             "name": "Panama City",
             "display_name": "FL - Panama City (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -325,8 +325,8 @@
             "geo_id": "134",
             "name": "Pensacola",
             "display_name": "FL - Pensacola (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -336,8 +336,8 @@
             "geo_id": "137",
             "name": "Sarasota",
             "display_name": "FL - Sarasota (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -347,8 +347,8 @@
             "geo_id": "139",
             "name": "St. Petersburg",
             "display_name": "FL - St. Petersburg (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -358,8 +358,8 @@
             "geo_id": "14",
             "name": "Sun City",
             "display_name": "AZ - Sun City (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -369,8 +369,8 @@
             "geo_id": "140",
             "name": "Tallahassee",
             "display_name": "FL - Tallahassee (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -380,8 +380,8 @@
             "geo_id": "141",
             "name": "Tampa",
             "display_name": "FL - Tampa (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -391,8 +391,8 @@
             "geo_id": "142",
             "name": "Albany",
             "display_name": "GA - Albany (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -402,8 +402,8 @@
             "geo_id": "144",
             "name": "Atlanta",
             "display_name": "GA - Atlanta (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -413,8 +413,8 @@
             "geo_id": "145",
             "name": "Augusta",
             "display_name": "GA - Augusta (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -424,8 +424,8 @@
             "geo_id": "146",
             "name": "Columbus",
             "display_name": "GA - Columbus (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -435,8 +435,8 @@
             "geo_id": "147",
             "name": "Macon",
             "display_name": "GA - Macon (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -446,8 +446,8 @@
             "geo_id": "148",
             "name": "Rome",
             "display_name": "GA - Rome (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -457,8 +457,8 @@
             "geo_id": "149",
             "name": "Savannah",
             "display_name": "GA - Savannah (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -468,8 +468,8 @@
             "geo_id": "15",
             "name": "Tucson",
             "display_name": "AZ - Tucson (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -479,8 +479,8 @@
             "geo_id": "150",
             "name": "Honolulu",
             "display_name": "HI - Honolulu (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -490,8 +490,8 @@
             "geo_id": "151",
             "name": "Boise",
             "display_name": "ID - Boise (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -501,8 +501,8 @@
             "geo_id": "152",
             "name": "Idaho Falls",
             "display_name": "ID - Idaho Falls (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -512,8 +512,8 @@
             "geo_id": "154",
             "name": "Aurora",
             "display_name": "IL - Aurora (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -523,8 +523,8 @@
             "geo_id": "155",
             "name": "Blue Island",
             "display_name": "IL - Blue Island (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -534,8 +534,8 @@
             "geo_id": "156",
             "name": "Chicago",
             "display_name": "IL - Chicago (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -545,8 +545,8 @@
             "geo_id": "158",
             "name": "Elgin",
             "display_name": "IL - Elgin (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -556,8 +556,8 @@
             "geo_id": "16",
             "name": "Fort Smith",
             "display_name": "AR - Fort Smith (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -567,8 +567,8 @@
             "geo_id": "161",
             "name": "Evanston",
             "display_name": "IL - Evanston (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -578,8 +578,8 @@
             "geo_id": "163",
             "name": "Hinsdale",
             "display_name": "IL - Hinsdale (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -589,8 +589,8 @@
             "geo_id": "164",
             "name": "Joliet",
             "display_name": "IL - Joliet (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -600,8 +600,8 @@
             "geo_id": "166",
             "name": "Melrose Park",
             "display_name": "IL - Melrose Park (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -611,8 +611,8 @@
             "geo_id": "170",
             "name": "Peoria",
             "display_name": "IL - Peoria (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -622,8 +622,8 @@
             "geo_id": "171",
             "name": "Rockford",
             "display_name": "IL - Rockford (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -633,8 +633,8 @@
             "geo_id": "172",
             "name": "Springfield",
             "display_name": "IL - Springfield (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -644,8 +644,8 @@
             "geo_id": "173",
             "name": "Urbana",
             "display_name": "IL - Urbana (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -655,8 +655,8 @@
             "geo_id": "175",
             "name": "Bloomington",
             "display_name": "IL - Bloomington (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -666,8 +666,8 @@
             "geo_id": "179",
             "name": "Evansville",
             "display_name": "IN - Evansville (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -677,8 +677,8 @@
             "geo_id": "18",
             "name": "Jonesboro",
             "display_name": "AR - Jonesboro (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -688,8 +688,8 @@
             "geo_id": "180",
             "name": "Fort Wayne",
             "display_name": "IN - Fort Wayne (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -699,8 +699,8 @@
             "geo_id": "181",
             "name": "Gary",
             "display_name": "IN - Gary (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -710,8 +710,8 @@
             "geo_id": "183",
             "name": "Indianapolis",
             "display_name": "IN - Indianapolis (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -721,8 +721,8 @@
             "geo_id": "184",
             "name": "Lafayette",
             "display_name": "IN - Lafayette (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -732,8 +732,8 @@
             "geo_id": "185",
             "name": "Muncie",
             "display_name": "IN - Muncie (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -743,8 +743,8 @@
             "geo_id": "186",
             "name": "Munster",
             "display_name": "IN - Munster (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -754,8 +754,8 @@
             "geo_id": "187",
             "name": "South Bend",
             "display_name": "IN - South Bend (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -765,8 +765,8 @@
             "geo_id": "188",
             "name": "Terre Haute",
             "display_name": "IN - Terre Haute (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -776,8 +776,8 @@
             "geo_id": "19",
             "name": "Little Rock",
             "display_name": "AR - Little Rock (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -787,8 +787,8 @@
             "geo_id": "190",
             "name": "Cedar Rapids",
             "display_name": "IA - Cedar Rapids (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -798,8 +798,8 @@
             "geo_id": "191",
             "name": "Davenport",
             "display_name": "IA - Davenport (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -809,8 +809,8 @@
             "geo_id": "192",
             "name": "Des Moines",
             "display_name": "IA - Des Moines (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -820,8 +820,8 @@
             "geo_id": "193",
             "name": "Dubuque",
             "display_name": "IA - Dubuque (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -831,8 +831,8 @@
             "geo_id": "194",
             "name": "Iowa City",
             "display_name": "IA - Iowa City (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -842,8 +842,8 @@
             "geo_id": "195",
             "name": "Mason City",
             "display_name": "IA - Mason City (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -853,8 +853,8 @@
             "geo_id": "196",
             "name": "Sioux City",
             "display_name": "IA - Sioux City (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -864,8 +864,8 @@
             "geo_id": "197",
             "name": "Waterloo",
             "display_name": "IA - Waterloo (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -875,8 +875,8 @@
             "geo_id": "2",
             "name": "Dothan",
             "display_name": "AL - Dothan (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -886,8 +886,8 @@
             "geo_id": "200",
             "name": "Topeka",
             "display_name": "KS - Topeka (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -897,8 +897,8 @@
             "geo_id": "201",
             "name": "Wichita",
             "display_name": "KS - Wichita (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -908,8 +908,8 @@
             "geo_id": "203",
             "name": "Covington",
             "display_name": "KY - Covington (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -919,8 +919,8 @@
             "geo_id": "204",
             "name": "Lexington",
             "display_name": "KY - Lexington (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -930,8 +930,8 @@
             "geo_id": "205",
             "name": "Louisville",
             "display_name": "KY - Louisville (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -941,8 +941,8 @@
             "geo_id": "207",
             "name": "Owensboro",
             "display_name": "KY - Owensboro (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -952,8 +952,8 @@
             "geo_id": "208",
             "name": "Paducah",
             "display_name": "KY - Paducah (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -963,8 +963,8 @@
             "geo_id": "209",
             "name": "Alexandria",
             "display_name": "LA - Alexandria (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -974,8 +974,8 @@
             "geo_id": "21",
             "name": "Springdale",
             "display_name": "AR - Springdale (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -985,8 +985,8 @@
             "geo_id": "210",
             "name": "Baton Rouge",
             "display_name": "LA - Baton Rouge (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -996,8 +996,8 @@
             "geo_id": "212",
             "name": "Houma",
             "display_name": "LA - Houma (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1007,8 +1007,8 @@
             "geo_id": "213",
             "name": "Lafayette",
             "display_name": "LA - Lafayette (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1018,8 +1018,8 @@
             "geo_id": "214",
             "name": "Lake Charles",
             "display_name": "LA - Lake Charles (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1029,8 +1029,8 @@
             "geo_id": "216",
             "name": "Metairie",
             "display_name": "LA - Metairie (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1040,8 +1040,8 @@
             "geo_id": "217",
             "name": "Monroe",
             "display_name": "LA - Monroe (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1051,8 +1051,8 @@
             "geo_id": "218",
             "name": "New Orleans",
             "display_name": "LA - New Orleans (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1062,8 +1062,8 @@
             "geo_id": "219",
             "name": "Shreveport",
             "display_name": "LA - Shreveport (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1073,8 +1073,8 @@
             "geo_id": "22",
             "name": "Texarkana",
             "display_name": "AR - Texarkana (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1084,8 +1084,8 @@
             "geo_id": "220",
             "name": "Slidell",
             "display_name": "LA - Slidell (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1095,8 +1095,8 @@
             "geo_id": "221",
             "name": "Bangor",
             "display_name": "ME - Bangor (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1106,8 +1106,8 @@
             "geo_id": "222",
             "name": "Portland",
             "display_name": "ME - Portland (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1117,8 +1117,8 @@
             "geo_id": "223",
             "name": "Baltimore",
             "display_name": "MD - Baltimore (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1128,8 +1128,8 @@
             "geo_id": "225",
             "name": "Salisbury",
             "display_name": "MD - Salisbury (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1139,8 +1139,8 @@
             "geo_id": "226",
             "name": "Takoma Park",
             "display_name": "MD - Takoma Park (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1150,8 +1150,8 @@
             "geo_id": "227",
             "name": "Boston",
             "display_name": "MA - Boston (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1161,8 +1161,8 @@
             "geo_id": "23",
             "name": "Orange County",
             "display_name": "CA - Orange County (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1172,8 +1172,8 @@
             "geo_id": "230",
             "name": "Springfield",
             "display_name": "MA - Springfield (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1183,8 +1183,8 @@
             "geo_id": "231",
             "name": "Worcester",
             "display_name": "MA - Worcester (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1194,8 +1194,8 @@
             "geo_id": "232",
             "name": "Ann Arbor",
             "display_name": "MI - Ann Arbor (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1205,8 +1205,8 @@
             "geo_id": "233",
             "name": "Dearborn",
             "display_name": "MI - Dearborn (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1216,8 +1216,8 @@
             "geo_id": "234",
             "name": "Detroit",
             "display_name": "MI - Detroit (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1227,8 +1227,8 @@
             "geo_id": "235",
             "name": "Flint",
             "display_name": "MI - Flint (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1238,8 +1238,8 @@
             "geo_id": "236",
             "name": "Grand Rapids",
             "display_name": "MI - Grand Rapids (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1249,8 +1249,8 @@
             "geo_id": "238",
             "name": "Kalamazoo",
             "display_name": "MI - Kalamazoo (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1260,8 +1260,8 @@
             "geo_id": "239",
             "name": "Lansing",
             "display_name": "MI - Lansing (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1271,8 +1271,8 @@
             "geo_id": "240",
             "name": "Marquette",
             "display_name": "MI - Marquette (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1282,8 +1282,8 @@
             "geo_id": "242",
             "name": "Muskegon",
             "display_name": "MI - Muskegon (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1293,8 +1293,8 @@
             "geo_id": "243",
             "name": "Petoskey",
             "display_name": "MI - Petoskey (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1304,8 +1304,8 @@
             "geo_id": "244",
             "name": "Pontiac",
             "display_name": "MI - Pontiac (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1315,8 +1315,8 @@
             "geo_id": "245",
             "name": "Royal Oak",
             "display_name": "MI - Royal Oak (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1326,8 +1326,8 @@
             "geo_id": "246",
             "name": "Saginaw",
             "display_name": "MI - Saginaw (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1337,8 +1337,8 @@
             "geo_id": "248",
             "name": "St. Joseph",
             "display_name": "MI - St. Joseph (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1348,8 +1348,8 @@
             "geo_id": "249",
             "name": "Traverse City",
             "display_name": "MI - Traverse City (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1359,8 +1359,8 @@
             "geo_id": "25",
             "name": "Bakersfield",
             "display_name": "CA - Bakersfield (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1370,8 +1370,8 @@
             "geo_id": "250",
             "name": "Duluth",
             "display_name": "MN - Duluth (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1381,8 +1381,8 @@
             "geo_id": "251",
             "name": "Minneapolis",
             "display_name": "MN - Minneapolis (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1392,8 +1392,8 @@
             "geo_id": "253",
             "name": "Rochester",
             "display_name": "MN - Rochester (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1403,8 +1403,8 @@
             "geo_id": "254",
             "name": "St. Cloud",
             "display_name": "MN - St. Cloud (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1414,8 +1414,8 @@
             "geo_id": "256",
             "name": "St. Paul",
             "display_name": "MN - St. Paul (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1425,8 +1425,8 @@
             "geo_id": "257",
             "name": "Gulfport",
             "display_name": "MS - Gulfport (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1436,8 +1436,8 @@
             "geo_id": "258",
             "name": "Hattiesburg",
             "display_name": "MS - Hattiesburg (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1447,8 +1447,8 @@
             "geo_id": "259",
             "name": "Jackson",
             "display_name": "MS - Jackson (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1458,8 +1458,8 @@
             "geo_id": "260",
             "name": "Meridian",
             "display_name": "MS - Meridian (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1469,8 +1469,8 @@
             "geo_id": "261",
             "name": "Oxford",
             "display_name": "MS - Oxford (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1480,8 +1480,8 @@
             "geo_id": "262",
             "name": "Tupelo",
             "display_name": "MS - Tupelo (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1491,8 +1491,8 @@
             "geo_id": "263",
             "name": "Cape Girardeau",
             "display_name": "MO - Cape Girardeau (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1502,8 +1502,8 @@
             "geo_id": "264",
             "name": "Columbia",
             "display_name": "MO - Columbia (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1513,8 +1513,8 @@
             "geo_id": "267",
             "name": "Joplin",
             "display_name": "MO - Joplin (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1524,8 +1524,8 @@
             "geo_id": "268",
             "name": "Kansas City",
             "display_name": "MO - Kansas City (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1535,8 +1535,8 @@
             "geo_id": "270",
             "name": "Springfield",
             "display_name": "MO - Springfield (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1546,8 +1546,8 @@
             "geo_id": "273",
             "name": "St. Louis",
             "display_name": "MO - St. Louis (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1557,8 +1557,8 @@
             "geo_id": "274",
             "name": "Billings",
             "display_name": "MT - Billings (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1568,8 +1568,8 @@
             "geo_id": "275",
             "name": "Great Falls",
             "display_name": "MT - Great Falls (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1579,8 +1579,8 @@
             "geo_id": "276",
             "name": "Missoula",
             "display_name": "MT - Missoula (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1590,8 +1590,8 @@
             "geo_id": "277",
             "name": "Lincoln",
             "display_name": "NE - Lincoln (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1601,8 +1601,8 @@
             "geo_id": "278",
             "name": "Omaha",
             "display_name": "NE - Omaha (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1612,8 +1612,8 @@
             "geo_id": "279",
             "name": "Las Vegas",
             "display_name": "NV - Las Vegas (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1623,8 +1623,8 @@
             "geo_id": "280",
             "name": "Reno",
             "display_name": "NV - Reno (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1634,8 +1634,8 @@
             "geo_id": "281",
             "name": "Lebanon",
             "display_name": "NH - Lebanon (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1645,8 +1645,8 @@
             "geo_id": "282",
             "name": "Manchester",
             "display_name": "NH - Manchester (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1656,8 +1656,8 @@
             "geo_id": "283",
             "name": "Camden",
             "display_name": "NJ - Camden (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1667,8 +1667,8 @@
             "geo_id": "284",
             "name": "Hackensack",
             "display_name": "NJ - Hackensack (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1678,8 +1678,8 @@
             "geo_id": "285",
             "name": "Morristown",
             "display_name": "NJ - Morristown (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1689,8 +1689,8 @@
             "geo_id": "288",
             "name": "New Brunswick",
             "display_name": "NJ - New Brunswick (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1700,8 +1700,8 @@
             "geo_id": "289",
             "name": "Newark",
             "display_name": "NJ - Newark (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1711,8 +1711,8 @@
             "geo_id": "291",
             "name": "Paterson",
             "display_name": "NJ - Paterson (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1722,8 +1722,8 @@
             "geo_id": "292",
             "name": "Ridgewood",
             "display_name": "NJ - Ridgewood (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1733,8 +1733,8 @@
             "geo_id": "293",
             "name": "Albuquerque",
             "display_name": "NM - Albuquerque (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1744,8 +1744,8 @@
             "geo_id": "295",
             "name": "Albany",
             "display_name": "NY - Albany (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1755,8 +1755,8 @@
             "geo_id": "296",
             "name": "Binghamton",
             "display_name": "NY - Binghamton (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1766,8 +1766,8 @@
             "geo_id": "297",
             "name": "Bronx",
             "display_name": "NY - Bronx (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1777,8 +1777,8 @@
             "geo_id": "299",
             "name": "Buffalo",
             "display_name": "NY - Buffalo (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1788,8 +1788,8 @@
             "geo_id": "300",
             "name": "Elmira",
             "display_name": "NY - Elmira (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1799,8 +1799,8 @@
             "geo_id": "301",
             "name": "East Long Island",
             "display_name": "NY - East Long Island (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1810,8 +1810,8 @@
             "geo_id": "303",
             "name": "Manhattan",
             "display_name": "NY - Manhattan (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1821,8 +1821,8 @@
             "geo_id": "304",
             "name": "Rochester",
             "display_name": "NY - Rochester (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1832,8 +1832,8 @@
             "geo_id": "305",
             "name": "Erie",
             "display_name": "PA - Erie (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1843,8 +1843,8 @@
             "geo_id": "307",
             "name": "Syracuse",
             "display_name": "NY - Syracuse (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1854,8 +1854,8 @@
             "geo_id": "308",
             "name": "White Plains",
             "display_name": "NY - White Plains (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1865,8 +1865,8 @@
             "geo_id": "309",
             "name": "Asheville",
             "display_name": "NC - Asheville (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1876,8 +1876,8 @@
             "geo_id": "31",
             "name": "Chico",
             "display_name": "CA - Chico (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1887,8 +1887,8 @@
             "geo_id": "311",
             "name": "Charlotte",
             "display_name": "NC - Charlotte (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1898,8 +1898,8 @@
             "geo_id": "312",
             "name": "Durham",
             "display_name": "NC - Durham (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1909,8 +1909,8 @@
             "geo_id": "313",
             "name": "Greensboro",
             "display_name": "NC - Greensboro (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1920,8 +1920,8 @@
             "geo_id": "314",
             "name": "Greenville",
             "display_name": "NC - Greenville (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1931,8 +1931,8 @@
             "geo_id": "315",
             "name": "Hickory",
             "display_name": "NC - Hickory (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1942,8 +1942,8 @@
             "geo_id": "318",
             "name": "Raleigh",
             "display_name": "NC - Raleigh (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1953,8 +1953,8 @@
             "geo_id": "319",
             "name": "Wilmington",
             "display_name": "NC - Wilmington (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1964,8 +1964,8 @@
             "geo_id": "320",
             "name": "Winston-Salem",
             "display_name": "NC - Winston-Salem (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1975,8 +1975,8 @@
             "geo_id": "321",
             "name": "Bismarck",
             "display_name": "ND - Bismarck (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1986,8 +1986,8 @@
             "geo_id": "322",
             "name": "Fargo/Moorhead MN",
             "display_name": "ND - Fargo/Moorhead MN (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -1997,8 +1997,8 @@
             "geo_id": "323",
             "name": "Grand Forks",
             "display_name": "ND - Grand Forks (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2008,8 +2008,8 @@
             "geo_id": "324",
             "name": "Minot",
             "display_name": "ND - Minot (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2019,8 +2019,8 @@
             "geo_id": "325",
             "name": "Akron",
             "display_name": "OH - Akron (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2030,8 +2030,8 @@
             "geo_id": "326",
             "name": "Canton",
             "display_name": "OH - Canton (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2041,8 +2041,8 @@
             "geo_id": "327",
             "name": "Cincinnati",
             "display_name": "OH - Cincinnati (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2052,8 +2052,8 @@
             "geo_id": "328",
             "name": "Cleveland",
             "display_name": "OH - Cleveland (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2063,8 +2063,8 @@
             "geo_id": "329",
             "name": "Columbus",
             "display_name": "OH - Columbus (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2074,8 +2074,8 @@
             "geo_id": "33",
             "name": "Contra Costa County",
             "display_name": "CA - Contra Costa County (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2085,8 +2085,8 @@
             "geo_id": "330",
             "name": "Dayton",
             "display_name": "OH - Dayton (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2096,8 +2096,8 @@
             "geo_id": "331",
             "name": "Elyria",
             "display_name": "OH - Elyria (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2107,8 +2107,8 @@
             "geo_id": "332",
             "name": "Kettering",
             "display_name": "OH - Kettering (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2118,8 +2118,8 @@
             "geo_id": "334",
             "name": "Toledo",
             "display_name": "OH - Toledo (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2129,8 +2129,8 @@
             "geo_id": "335",
             "name": "Youngstown",
             "display_name": "OH - Youngstown (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2140,8 +2140,8 @@
             "geo_id": "336",
             "name": "Lawton",
             "display_name": "OK - Lawton (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2151,8 +2151,8 @@
             "geo_id": "339",
             "name": "Oklahoma City",
             "display_name": "OK - Oklahoma City (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2162,8 +2162,8 @@
             "geo_id": "340",
             "name": "Tulsa",
             "display_name": "OK - Tulsa (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2173,8 +2173,8 @@
             "geo_id": "341",
             "name": "Bend",
             "display_name": "OR - Bend (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2184,8 +2184,8 @@
             "geo_id": "342",
             "name": "Eugene",
             "display_name": "OR - Eugene (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2195,8 +2195,8 @@
             "geo_id": "343",
             "name": "Medford",
             "display_name": "OR - Medford (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2206,8 +2206,8 @@
             "geo_id": "344",
             "name": "Portland",
             "display_name": "OR - Portland (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2217,8 +2217,8 @@
             "geo_id": "345",
             "name": "Salem",
             "display_name": "OR - Salem (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2228,8 +2228,8 @@
             "geo_id": "346",
             "name": "Allentown",
             "display_name": "PA - Allentown (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2239,8 +2239,8 @@
             "geo_id": "347",
             "name": "Altoona",
             "display_name": "PA - Altoona (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2250,8 +2250,8 @@
             "geo_id": "350",
             "name": "Danville",
             "display_name": "PA - Danville (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2261,8 +2261,8 @@
             "geo_id": "352",
             "name": "Harrisburg",
             "display_name": "PA - Harrisburg (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2272,8 +2272,8 @@
             "geo_id": "354",
             "name": "Johnstown",
             "display_name": "PA - Johnstown (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2283,8 +2283,8 @@
             "geo_id": "355",
             "name": "Lancaster",
             "display_name": "PA - Lancaster (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2294,8 +2294,8 @@
             "geo_id": "356",
             "name": "Philadelphia",
             "display_name": "PA - Philadelphia (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2305,8 +2305,8 @@
             "geo_id": "357",
             "name": "Pittsburgh",
             "display_name": "PA - Pittsburgh (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2316,8 +2316,8 @@
             "geo_id": "358",
             "name": "Reading",
             "display_name": "PA - Reading (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2327,8 +2327,8 @@
             "geo_id": "359",
             "name": "Sayre",
             "display_name": "PA - Sayre (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2338,8 +2338,8 @@
             "geo_id": "360",
             "name": "Scranton",
             "display_name": "PA - Scranton (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2349,8 +2349,8 @@
             "geo_id": "362",
             "name": "Wilkes-Barre",
             "display_name": "PA - Wilkes-Barre (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2360,8 +2360,8 @@
             "geo_id": "363",
             "name": "York",
             "display_name": "PA - York (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2371,8 +2371,8 @@
             "geo_id": "364",
             "name": "Providence",
             "display_name": "RI - Providence (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2382,8 +2382,8 @@
             "geo_id": "365",
             "name": "Charleston",
             "display_name": "SC - Charleston (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2393,8 +2393,8 @@
             "geo_id": "366",
             "name": "Columbia",
             "display_name": "SC - Columbia (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2404,8 +2404,8 @@
             "geo_id": "367",
             "name": "Florence",
             "display_name": "SC - Florence (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2415,8 +2415,8 @@
             "geo_id": "368",
             "name": "Greenville",
             "display_name": "SC - Greenville (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2426,8 +2426,8 @@
             "geo_id": "369",
             "name": "Spartanburg",
             "display_name": "SC - Spartanburg (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2437,8 +2437,8 @@
             "geo_id": "370",
             "name": "Rapid City",
             "display_name": "SD - Rapid City (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2448,8 +2448,8 @@
             "geo_id": "371",
             "name": "Sioux Falls",
             "display_name": "SD - Sioux Falls (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2459,8 +2459,8 @@
             "geo_id": "373",
             "name": "Chattanooga",
             "display_name": "TN - Chattanooga (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2470,8 +2470,8 @@
             "geo_id": "374",
             "name": "Jackson",
             "display_name": "TN - Jackson (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2481,8 +2481,8 @@
             "geo_id": "375",
             "name": "Johnson City",
             "display_name": "TN - Johnson City (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2492,8 +2492,8 @@
             "geo_id": "376",
             "name": "Kingsport",
             "display_name": "TN - Kingsport (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2503,8 +2503,8 @@
             "geo_id": "377",
             "name": "Knoxville",
             "display_name": "TN - Knoxville (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2514,8 +2514,8 @@
             "geo_id": "379",
             "name": "Memphis",
             "display_name": "TN - Memphis (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2525,8 +2525,8 @@
             "geo_id": "380",
             "name": "Nashville",
             "display_name": "TN - Nashville (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2536,8 +2536,8 @@
             "geo_id": "382",
             "name": "Abilene",
             "display_name": "TX - Abilene (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2547,8 +2547,8 @@
             "geo_id": "383",
             "name": "Amarillo",
             "display_name": "TX - Amarillo (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2558,8 +2558,8 @@
             "geo_id": "385",
             "name": "Austin",
             "display_name": "TX - Austin (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2569,8 +2569,8 @@
             "geo_id": "386",
             "name": "Beaumont",
             "display_name": "TX - Beaumont (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2580,8 +2580,8 @@
             "geo_id": "388",
             "name": "Bryan",
             "display_name": "TX - Bryan (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2591,8 +2591,8 @@
             "geo_id": "390",
             "name": "Corpus Christi",
             "display_name": "TX - Corpus Christi (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2602,8 +2602,8 @@
             "geo_id": "390",
             "name": "Victoria",
             "display_name": "TX - Victoria (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2613,8 +2613,8 @@
             "geo_id": "391",
             "name": "Dallas",
             "display_name": "TX - Dallas (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2624,8 +2624,8 @@
             "geo_id": "393",
             "name": "El Paso",
             "display_name": "TX - El Paso (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2635,8 +2635,8 @@
             "geo_id": "394",
             "name": "Fort Worth",
             "display_name": "TX - Fort Worth (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2646,8 +2646,8 @@
             "geo_id": "396",
             "name": "Harlingen",
             "display_name": "TX - Harlingen (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2657,8 +2657,8 @@
             "geo_id": "397",
             "name": "Houston",
             "display_name": "TX - Houston (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2668,8 +2668,8 @@
             "geo_id": "399",
             "name": "Longview",
             "display_name": "TX - Longview (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2679,8 +2679,8 @@
             "geo_id": "400",
             "name": "Lubbock",
             "display_name": "TX - Lubbock (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2690,8 +2690,8 @@
             "geo_id": "402",
             "name": "McAllen",
             "display_name": "TX - McAllen (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2701,8 +2701,8 @@
             "geo_id": "406",
             "name": "Odessa",
             "display_name": "TX - Odessa (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2712,8 +2712,8 @@
             "geo_id": "411",
             "name": "San Angelo",
             "display_name": "TX - San Angelo (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2723,8 +2723,8 @@
             "geo_id": "412",
             "name": "San Antonio",
             "display_name": "TX - San Antonio (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2734,8 +2734,8 @@
             "geo_id": "413",
             "name": "Temple",
             "display_name": "TX - Temple (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2745,8 +2745,8 @@
             "geo_id": "416",
             "name": "Tyler",
             "display_name": "TX - Tyler (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2756,8 +2756,8 @@
             "geo_id": "418",
             "name": "Waco",
             "display_name": "TX - Waco (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2767,8 +2767,8 @@
             "geo_id": "420",
             "name": "Wichita Falls",
             "display_name": "TX - Wichita Falls (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2778,8 +2778,8 @@
             "geo_id": "421",
             "name": "Ogden",
             "display_name": "UT - Ogden (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2789,8 +2789,8 @@
             "geo_id": "422",
             "name": "Provo",
             "display_name": "UT - Provo (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2800,8 +2800,8 @@
             "geo_id": "423",
             "name": "Salt Lake City",
             "display_name": "UT - Salt Lake City (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2811,8 +2811,8 @@
             "geo_id": "424",
             "name": "Burlington",
             "display_name": "VT - Burlington (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2822,8 +2822,8 @@
             "geo_id": "426",
             "name": "Arlington",
             "display_name": "VA - Arlington (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2833,8 +2833,8 @@
             "geo_id": "427",
             "name": "Charlottesville",
             "display_name": "VA - Charlottesville (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2844,8 +2844,8 @@
             "geo_id": "428",
             "name": "Lynchburg",
             "display_name": "VA - Lynchburg (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2855,8 +2855,8 @@
             "geo_id": "429",
             "name": "Newport News",
             "display_name": "VA - Newport News (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2866,8 +2866,8 @@
             "geo_id": "43",
             "name": "Fresno",
             "display_name": "CA - Fresno (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2877,8 +2877,8 @@
             "geo_id": "430",
             "name": "Norfolk",
             "display_name": "VA - Norfolk (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2888,8 +2888,8 @@
             "geo_id": "431",
             "name": "Richmond",
             "display_name": "VA - Richmond (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2899,8 +2899,8 @@
             "geo_id": "432",
             "name": "Roanoke",
             "display_name": "VA - Roanoke (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2910,8 +2910,8 @@
             "geo_id": "435",
             "name": "Winchester",
             "display_name": "VA - Winchester (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2921,8 +2921,8 @@
             "geo_id": "437",
             "name": "Everett",
             "display_name": "WA - Everett (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2932,8 +2932,8 @@
             "geo_id": "438",
             "name": "Olympia",
             "display_name": "WA - Olympia (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2943,8 +2943,8 @@
             "geo_id": "439",
             "name": "Seattle",
             "display_name": "WA - Seattle (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2954,8 +2954,8 @@
             "geo_id": "440",
             "name": "Spokane",
             "display_name": "WA - Spokane (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2965,8 +2965,8 @@
             "geo_id": "441",
             "name": "Tacoma",
             "display_name": "WA - Tacoma (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2976,8 +2976,8 @@
             "geo_id": "442",
             "name": "Yakima",
             "display_name": "WA - Yakima (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2987,8 +2987,8 @@
             "geo_id": "443",
             "name": "Charleston",
             "display_name": "WV - Charleston (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -2998,8 +2998,8 @@
             "geo_id": "444",
             "name": "Huntington",
             "display_name": "WV - Huntington (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3009,8 +3009,8 @@
             "geo_id": "445",
             "name": "Morgantown",
             "display_name": "WV - Morgantown (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3020,8 +3020,8 @@
             "geo_id": "446",
             "name": "Appleton",
             "display_name": "WI - Appleton (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3031,8 +3031,8 @@
             "geo_id": "447",
             "name": "Green Bay",
             "display_name": "WI - Green Bay (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3042,8 +3042,8 @@
             "geo_id": "448",
             "name": "La Crosse",
             "display_name": "WI - La Crosse (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3053,8 +3053,8 @@
             "geo_id": "449",
             "name": "Madison",
             "display_name": "WI - Madison (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3064,8 +3064,8 @@
             "geo_id": "450",
             "name": "Marshfield",
             "display_name": "WI - Marshfield (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3075,8 +3075,8 @@
             "geo_id": "451",
             "name": "Milwaukee",
             "display_name": "WI - Milwaukee (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3086,8 +3086,8 @@
             "geo_id": "452",
             "name": "Neenah",
             "display_name": "WI - Neenah (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3097,8 +3097,8 @@
             "geo_id": "456",
             "name": "Wausau",
             "display_name": "WI - Wausau (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3108,8 +3108,8 @@
             "geo_id": "457",
             "name": "Casper",
             "display_name": "WY - Casper (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3119,8 +3119,8 @@
             "geo_id": "5",
             "name": "Huntsville",
             "display_name": "AL - Huntsville (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3130,8 +3130,8 @@
             "geo_id": "56",
             "name": "Los Angeles",
             "display_name": "CA - Los Angeles (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3141,8 +3141,8 @@
             "geo_id": "58",
             "name": "Modesto",
             "display_name": "CA - Modesto (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3152,8 +3152,8 @@
             "geo_id": "6",
             "name": "Mobile",
             "display_name": "AL - Mobile (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3163,8 +3163,8 @@
             "geo_id": "62",
             "name": "Napa",
             "display_name": "CA - Napa (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3174,8 +3174,8 @@
             "geo_id": "65",
             "name": "Alameda County",
             "display_name": "CA - Alameda County (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3185,8 +3185,8 @@
             "geo_id": "69",
             "name": "Palm Springs/Rancho Mirage",
             "display_name": "CA - Palm Springs/Rancho Mirage (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3196,8 +3196,8 @@
             "geo_id": "7",
             "name": "Montgomery",
             "display_name": "AL - Montgomery (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3207,8 +3207,8 @@
             "geo_id": "73",
             "name": "Redding",
             "display_name": "CA - Redding (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3218,8 +3218,8 @@
             "geo_id": "77",
             "name": "Sacramento",
             "display_name": "CA - Sacramento (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3229,8 +3229,8 @@
             "geo_id": "78",
             "name": "Salinas",
             "display_name": "CA - Salinas (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3240,8 +3240,8 @@
             "geo_id": "79",
             "name": "San Bernardino",
             "display_name": "CA - San Bernardino (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3251,8 +3251,8 @@
             "geo_id": "80",
             "name": "San Diego",
             "display_name": "CA - San Diego (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3262,8 +3262,8 @@
             "geo_id": "81",
             "name": "San Francisco",
             "display_name": "CA - San Francisco (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3273,8 +3273,8 @@
             "geo_id": "82",
             "name": "San Jose",
             "display_name": "CA - San Jose (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3284,8 +3284,8 @@
             "geo_id": "83",
             "name": "San Luis Obispo",
             "display_name": "CA - San Luis Obispo (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3295,8 +3295,8 @@
             "geo_id": "85",
             "name": "San Mateo County",
             "display_name": "CA - San Mateo County (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3306,8 +3306,8 @@
             "geo_id": "86",
             "name": "Santa Barbara",
             "display_name": "CA - Santa Barbara (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3317,8 +3317,8 @@
             "geo_id": "87",
             "name": "Santa Cruz",
             "display_name": "CA - Santa Cruz (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3328,8 +3328,8 @@
             "geo_id": "89",
             "name": "Santa Rosa",
             "display_name": "CA - Santa Rosa (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3339,8 +3339,8 @@
             "geo_id": "9",
             "name": "Tuscaloosa",
             "display_name": "AL - Tuscaloosa (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3350,8 +3350,8 @@
             "geo_id": "91",
             "name": "Stockton",
             "display_name": "CA - Stockton (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     },
     {
@@ -3361,8 +3361,8 @@
             "geo_id": "96",
             "name": "Ventura",
             "display_name": "CA - Ventura (HRR)",
-            "level": 3,
-            "geo_level": 3
+            "level": 8,
+            "geo_level": 8
         }
     }
 ]
