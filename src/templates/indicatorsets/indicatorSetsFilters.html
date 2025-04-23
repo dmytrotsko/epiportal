@@ -309,8 +309,6 @@
         if (urlParams.location_search != "") {
             var locationSearch = urlParams.location_search; 
             $("#location_search").val(locationSearch).trigger("change");
-            var locationIds = locationSearch.map((item) => item.split(":")[1]);
-            $('#geographic_value').val(locationIds).trigger('change');
         }
     })
 </script>
