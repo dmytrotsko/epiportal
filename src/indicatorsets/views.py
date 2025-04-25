@@ -1,11 +1,15 @@
 import logging
 import json
+import base64
 
 from django.views.generic import ListView
 from django.conf import settings
+from django.http import JsonResponse
+
 
 from indicatorsets.models import IndicatorSet
 from indicatorsets.forms import IndicatorSetFilterForm
+from indicatorsets.utils import generate_random_color, generate_epivis_custom_title
 from indicatorsets.filters import IndicatorSetFilter
 from base.models import Geography, GeographyUnit
 
@@ -40,6 +44,10 @@ COLUMNS_DESCRIPTIONS = {
     "censoring": "Is any of the data being censored (e.g. small counts)?  If so how, and how much impact does it have (e.g. approximate fraction of values affected).",
     "dua_required": "Applicable data use terms (may apply even to publicly accessible indicators).",
 }
+
+HEADER_DESCRIPTION = "Discover, display and download real-time infectious disease indicators (time series) that track a variety of pathogens, diseases and syndromes in a variety of locations (primarily within the USA). Browse the list, or filter it first by locations and pathogens of interest, by surveillance categories, and more. Expand any row to expose and select from a set of related indicators, then hit 'Show Selected Indicators' at bottom to plot or export your selected indicators, or to generate code snippets to retrieve them from the Delphi Epidata API. Most indicators are served from the Delphi Epidata real-time repository, but some may be available only from third parties or may require prior approval."
+
+FLUVIEW_INDICATORS_MAPPING = {"wili": "%wILI", "ili": "%ILI"}
 
 
 class IndicatorSetListView(ListView):
@@ -148,6 +156,7 @@ class IndicatorSetListView(ListView):
         )
         context["filters_descriptions"] = FILTERS_DESCRIPTIONS
         context["columns_descriptions"] = COLUMNS_DESCRIPTIONS
+        context["header_description"] = HEADER_DESCRIPTION
         context["available_geographies"] = Geography.objects.filter(
             used_in="indicators"
         )
@@ -160,3 +169,55 @@ class IndicatorSetListView(ListView):
             for geo_unit in GeographyUnit.objects.all().prefetch_related("geo_level")
         ]
         return context
+
+
+def epivis(request):
+    if request.method == "POST":
+        datasets = []
+        data = json.loads(request.body)
+        indicators = data.get("indicators", [])
+        covidcast_geos = data.get("covidCastGeographicValues", [])
+        fluview_geos = data.get("fluviewRegions", [])
+        for indicator in indicators:
+            if indicator["_endpoint"] == "covidcast":
+                for geo in covidcast_geos:
+                    if geo["geoType"] in ["nation", "state"]:
+                        geo_value = geo["id"].lower()
+                    datasets.append(
+                        {
+                            "color": generate_random_color(),
+                            "title": "value",
+                            "params": {
+                                "_endpoint": indicator["_endpoint"],
+                                "data_source": indicator["data_source"],
+                                "signal": indicator["indicator"],
+                                "time_type": indicator["time_type"],
+                                "geo_type": geo["geoType"],
+                                "geo_value": geo_value,
+                                "custom_title": generate_epivis_custom_title(
+                                    indicator, geo["text"]
+                                ),
+                            },
+                        }
+                    )
+            elif indicator["_endpoint"] == "fluview":
+                for geo in fluview_geos:
+                    datasets.append(
+                        {
+                            "color": generate_random_color(),
+                            "title": FLUVIEW_INDICATORS_MAPPING.get(
+                                indicator["indicator"], indicator["indicator"]
+                            ),
+                            "params": {
+                                "_endpoint": indicator["_endpoint"],
+                                "regions": geo["id"],
+                                "custom_title": generate_epivis_custom_title(
+                                    indicator, geo["text"]
+                                ),
+                            },
+                        }
+                    )
+        datasets_json = json.dumps({"datasets": datasets})
+        datasets_b64 = base64.b64encode(datasets_json.encode("ascii")).decode("ascii")
+        response = {"epivis_url": f"{settings.EPIVIS_URL}#{datasets_b64}"}
+        return JsonResponse(response)

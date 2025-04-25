@@ -163,3 +163,23 @@ $("#showSelectedIndicatorsButton").click(function() {
         }
     }
 });
+
+
+function submitMode(event) {
+    event.preventDefault();
+    var geographicValues = $('#geographic_value').select2('data');
+    if (indicatorHandler.checkForCovidcastIndicators()) {
+        if (geographicValues.length === 0) {
+            appendAlert("Please select at least one geographic location", "warning")
+            return;
+        }
+    }
+
+    if (currentMode === 'epivis') {
+        indicatorHandler.plotData();
+    } else if (currentMode === 'export') {
+        indicatorHandler.exportData();
+    } else {
+        indicatorHandler.previewData();
+    }
+}

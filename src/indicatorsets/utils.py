@@ -1,6 +1,7 @@
 import ast
 import requests
 from django.conf import settings
+import random
 
 
 def list_to_dict(lst):
@@ -28,3 +29,14 @@ def get_list_of_indicators_filtered_by_geo(geos):
     response = requests.get(url, params=params)
     print(f"Response from Epidata: {response}")
     return response.json()
+
+
+def generate_epivis_custom_title(indicator, geo_value):
+    return f"{indicator['indicator_set_short_name']}:{indicator.get('member_short_name', '')} : {geo_value}"
+
+
+def generate_random_color():
+    """
+    Generate a random color in hexadecimal format.
+    """
+    return "#{:06x}".format(random.randint(0, 0xFFFFFF))

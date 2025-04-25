@@ -1,3 +1,4 @@
+const indicatorHandler = new IndicatorHandler();
 let checkedIndicatorMembers = [];
 
 function updateSelectedIndicators(
@@ -50,7 +51,7 @@ function addSelectedIndicator(element) {
             .remove();
     }
 
-    //indicatorHandler.indicators = checkedSignalMembers;
+    indicatorHandler.indicators = checkedIndicatorMembers;
 
     if (checkedIndicatorMembers.length > 0) {
         $("#showSelectedIndicatorsButton").show();
@@ -77,59 +78,88 @@ const appendAlert = (message, type) => {
         .addEventListener("click", () => hideAlert(alertId));
 };
 
-var currentMode = 'epivis';
+var currentMode = "epivis";
 
-function showNotCoveredGeoWarningMessage(notCoveredSignals, geoValue) {
+function showNotCoveredGeoWarningMessage(notCoveredIndicators, geoValue) {
     var warningMessage = "";
-    notCoveredSignals.forEach((signal) => {
+    notCoveredIndicators.forEach((indicator) => {
         if (currentMode === "epivis") {
-            warningMessage += `Indicator ${signal.display_name} is not available for Location ${geoValue} <br>`;
+            warningMessage += `Indicator ${indicator.display_name} is not available for Location ${geoValue} <br>`;
         } else {
             var startDate = document.getElementById("start_date").value;
             var endDate = document.getElementById("end_date").value;
-            warningMessage += `Indicator ${signal.display_name} is not available for Location ${geoValue} for the time period from ${startDate} to ${endDate} <br>`;
+            warningMessage += `Indicator ${indicator.display_name} is not available for Location ${geoValue} for the time period from ${startDate} to ${endDate} <br>`;
         }
     });
     appendAlert(warningMessage, "warning");
 }
 
 async function checkGeoCoverage(geoType, geoValue) {
-    const notCoveredSignals = [];
+    const notCoveredIndicators = [];
 
     try {
         const result = await $.ajax({
-            url: "/base/epidata/covidcast/geo_coverage/",
+            url: "epidata/covidcast/geo_coverage/",
             type: "GET",
             data: {
                 geo: `${geoType}:${geoValue}`,
             },
         });
 
-        checkedSignalMembers
-            .filter((signal) => signal["_endpoint"] === "covidcast")
-            .forEach((signal) => {
+        checkedIndicatorMembers
+            .filter((indicator) => indicator["_endpoint"] === "covidcast")
+            .forEach((indicator) => {
                 const covered = result["epidata"].some(
                     (e) =>
-                        e.source === signal.data_source &&
-                        e.signal === signal.signal
+                        e.source === indicator.data_source &&
+                        e.signal === indicator.indicator
                 );
                 if (!covered) {
-                    notCoveredSignals.push(signal);
+                    notCoveredIndicators.push(indicator);
                 }
             });
 
-        return notCoveredSignals;
+        return notCoveredIndicators;
     } catch (error) {
         console.error("Error fetching geo coverage:", error);
-        return notCoveredSignals;
+        return notCoveredIndicators;
     }
 }
 
 $("#geographic_value").on("select2:select", function (e) {
     var geo = e.params.data;
-    checkGeoCoverage(geo.geoType, geo.id).then((notCoveredSignals) => {
-        if (notCoveredSignals.length > 0) {
-            showNotCoveredGeoWarningMessage(notCoveredSignals, geo.text);
+    checkGeoCoverage(geo.geoType, geo.id).then((notCoveredIndicators) => {
+        if (notCoveredIndicators.length > 0) {
+            showNotCoveredGeoWarningMessage(notCoveredIndicators, geo.text);
         }
     });
+});
+
+
+$("#showSelectedIndicatorsButton").click(function() {
+    alertPlaceholder.innerHTML = "";
+    if (!indicatorHandler.checkForCovidcastIndicators()) {
+        $('#geographic_value').val(null).trigger('change');
+        $("#geographic_value").prop("disabled", true);
+    } else {
+        $("#geographic_value").prop("disabled", false);
+    }
+    $('#geographic_value').select2("data").forEach(geo => {
+        checkGeoCoverage(geo.geoType, geo.id).then((notCoveredIndicators) => {
+            if (notCoveredIndicators.length > 0) {
+                showNotCoveredGeoWarningMessage(notCoveredIndicators, geo.text);
+            }
+        })
+    });
+    var otherEndpointLocationsWarning = `<div class="alert alert-info" data-mdb-alert-init role="alert">` +
+    `   <div>Please, note that some indicator sets may require to select location(s) that is/are different from location(s) above.<br> `
+    nonCovidcastIndicatorSets = [...new Set(checkedIndicatorMembers.filter(indicator => indicator["_endpoint"] != "covidcast").map((indicator) => indicator["indicator_set"]))];
+    otherEndpointLocationsWarning += `Different location is required for following Indicator Set(s): ${nonCovidcastIndicatorSets.join(", ")}`
+    otherEndpointLocationsWarning += `</div></div>`
+    if (indicatorHandler.getFluviewIndicators().length > 0) {
+        $("#differentLocationNote").html(otherEndpointLocationsWarning)
+        if (document.getElementsByName("fluviewRegions").length === 0) {
+            indicatorHandler.showFluviewRegions();
+        }
+    }
 });

@@ -34,6 +34,7 @@
         <link rel="stylesheet"
               href="https://cdn.datatables.net/plug-ins/1.10.13/features/mark.js/datatables.mark.min.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src=" https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js "></script>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
@@ -68,7 +69,7 @@
                                data-mdb-popover-init
                                data-mdb-trigger="hover"
                                data-mdb-placement="right"
-                               data-mdb-content="Discover, display and download real-time infectious disease indicators (time series) that track a variety of pathogens, diseases and syndromes in a variety of locations (primarily within the USA). Browse the list, or filter it first by locations and pathogens of interest, by surveillance categories, and more. Expand any row to expose and select from a set of related indicators, then hit 'Show Selected Indicators' at bottom to plot or export your selected indicators, or to generate code snippets to retrieve them from the Delphi Epidata API. Most indicators are served from the Delphi Epidata real-time repository, but some may be available only from third parties or may require prior approval.">
+                               data-mdb-content="{{ header_description }}">
                                 <i class="far fa-circle-question"></i>
                             </a>
                         </li>

@@ -241,66 +241,6 @@ class IndicatorHandler {
                     }
                 })
             }
-            // else if (indicator["_endpoint"] === "flusurv") {
-            //     // TODO: Add support for flusurv. Need to figure out how to get the geographic value for flusurv.
-            //     // For now, we will just use the static geographic value.
-            //     dataSets[`${indicator["signal"]}_${indicator["_endpoint"]}`] = {
-            //         color: '#'+(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0'),
-            //         title: indicator["signal"],
-            //         params: {
-            //             _endpoint: indicator["_endpoint"],
-            //             locations: "network_all",
-            //             custom_title: this.generateEpivisCustomTitle(indicator, "Entire Network")
-            //         }
-            //     }
-            // } else if (indicator["_endpoint"] === "gft") {
-            //     // TODO: Add support for gft. Need to figure out how to get the geographic value for gft.
-            //     // For now, we will just use the static geographic value.
-            //     dataSets[`${indicator["signal"]}_${indicator["_endpoint"]}`] = {
-            //         color: '#'+(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0'),
-            //         title: indicator["signal"],
-            //         params: {
-            //             _endpoint: indicator["_endpoint"],
-            //             locations: "nat",
-            //             custom_title: this.generateEpivisCustomTitle(indicator, "U.S. National")
-            //         }
-            //     }
-            // } else if (indicator["_endpoint"] === "wiki") {
-            //     dataSets[`${indicator["signal"]}_${indicator["_endpoint"]}`] = {
-            //         color: '#'+(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0'),
-            //         title: indicator["signal"],
-            //         params: {
-            //             _endpoint: indicator["_endpoint"],
-            //             articles: "fatigue_(medical)",
-            //             language: "en",
-            //             resolution: "daily",
-            //             custom_title: this.generateEpivisCustomTitle(indicator, "U.S. National")
-            //         }
-            //     }
-            // } else if (indicator["_endpoint"] === "cdc") {
-            //     dataSets[`${indicator["signal"]}_${indicator["_endpoint"]}`] = {
-            //         color: '#'+(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0'),
-            //         title: indicator["signal"],
-            //         params: {
-            //             _endpoint: indicator["_endpoint"],
-            //             auth: "390da13640f61",
-            //             locations: "nat",
-            //             custom_title: this.generateEpivisCustomTitle(indicator, "U.S. National")
-            //         }
-            //     }
-            // } else if(indicator["_endpoint"] === "sensors") {
-            //     dataSets[`${indicator["signal"]}_${indicator["_endpoint"]}`] = {
-            //         color: '#'+(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0'),
-            //         title: indicator["signal"],
-            //         params: {
-            //             _endpoint: indicator["_endpoint"],
-            //             auth: "390da13640f61",
-            //             names: "wiki",
-            //             locations: "nat",
-            //             custom_title: this.generateEpivisCustomTitle(indicator, "U.S. National")
-            //         }
-            //     }
-            // }
         });
         var requestParams = [];
         for (var key in dataSets) {
