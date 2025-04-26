@@ -192,16 +192,6 @@ class IndicatorHandler {
         }
     }
 
-    generateEpivisCustomTitle(indicator, geoValue) {
-        var epivisCustomTitle;
-        if (indicator["member_short_name"]) {
-            epivisCustomTitle = `${indicator["signal_set_short_name"]}:${indicator["member_short_name"]} : ${geoValue}`;
-        } else {
-            epivisCustomTitle = `${indicator["signal_set_short_name"]} : ${geoValue}`;
-        }
-        return epivisCustomTitle;
-    }
-
     plotData() {
         const covidCastGeographicValues =
             $("#geographic_value").select2("data");
@@ -226,56 +216,32 @@ class IndicatorHandler {
     }
 
     exportData() {
-        var manualDataExport =
-            "To download data, please click on the link or copy/paste command into your terminal: \n\n";
-        var exportUrl;
+        var fluviewRegions = $("#fluviewRegions").select2("data");
 
-        this.getCovidcastIndicators().forEach((indicator) => {
-            var startDate = document.getElementById("start_date").value;
-            var endDate = document.getElementById("end_date").value;
-            const [dateFrom, dateTo] = this.getFromToDate(
-                startDate,
-                endDate,
-                indicator["time_type"]
-            );
+        var covidCastGeographicValues = Object.groupBy(
+            $("#geographic_value").select2("data"),
+            ({ geoType }) => [geoType]
+        );
 
-            var covidCastGeographicValues =
-                $("#geographic_value").select2("data");
-            covidCastGeographicValues = Object.groupBy(
-                covidCastGeographicValues,
-                ({ geoType }) => [geoType]
-            );
-            var covidcastGeoTypes = Object.keys(covidCastGeographicValues);
-            covidcastGeoTypes.forEach((geoType) => {
-                var geoValues = covidCastGeographicValues[geoType]
-                    .map((el) =>
-                        typeof el.id === "string" ? el.id.toLowerCase() : el.id
-                    )
-                    .join(",");
-                exportUrl = `https://api.delphi.cmu.edu/epidata/covidcast/csv?signal=${indicator["data_source"]}:${indicator["signal"]}&start_day=${dateFrom}&end_day=${dateTo}&geo_type=${geoType}&geo_values=${geoValues}`;
-                manualDataExport += `wget --content-disposition <a href="${exportUrl}">${exportUrl}</a>\n`;
-            });
-        });
-
-        if (this.getFluviewIndicators().length > 0) {
-            var startDate = document.getElementById("start_date").value;
-            var endDate = document.getElementById("end_date").value;
-
-            const [dateFrom, dateTo] = this.getFromToDate(
-                startDate,
-                endDate,
-                "week"
-            );
-
-            var fluviewRegions = $("#fluviewRegions")
-                .select2("data")
-                .map((region) => region.id);
-            fluviewRegions = fluviewRegions.join(",");
-            exportUrl = `https://api.delphi.cmu.edu/epidata/fluview/?regions=${fluviewRegions}&epiweeks=${dateFrom}-${dateTo}&format=csv`;
-            manualDataExport += `wget --content-disposition <a href="${exportUrl}">${exportUrl}</a>\n`;
+        const submitData = {
+            start_date: document.getElementById("start_date").value,
+            end_date: document.getElementById("end_date").value,
+            indicators: this.indicators,
+            covidCastGeographicValues: covidCastGeographicValues,
+            fluviewRegions: fluviewRegions,
         }
-
-        $("#modeSubmitResult").html(manualDataExport);
+        const csrftoken = Cookies.get("csrftoken");
+        $.ajax({
+            url: "export/",
+            type: "POST",
+            async: false,
+            dataType: "json",
+            contentType: "application/json",
+            headers: { "X-CSRFToken": csrftoken },
+            data: JSON.stringify(submitData),
+        }).done(function (data) {
+            $('#modeSubmitResult').html(data["data_export_block"]);
+        });
     }
 
     previewData() {

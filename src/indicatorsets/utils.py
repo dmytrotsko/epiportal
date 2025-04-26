@@ -1,7 +1,10 @@
 import ast
+import random
+from datetime import datetime as dtime
+
 import requests
 from django.conf import settings
-import random
+from epiweeks import Week
 
 
 def list_to_dict(lst):
@@ -40,3 +43,13 @@ def generate_random_color():
     Generate a random color in hexadecimal format.
     """
     return "#{:06x}".format(random.randint(0, 0xFFFFFF))
+
+
+def get_epiweek(start_date, end_date):
+    start_date = dtime.strptime(start_date, "%Y-%m-%d")
+    start_date = Week.fromdate(start_date)
+    start_date = f"{start_date.year}{start_date.week if start_date.week >= 10 else '0' + str(start_date.week)}"
+    end_date = dtime.strptime(end_date, "%Y-%m-%d")
+    end_date = Week.fromdate(end_date)
+    end_date = f"{end_date.year}{end_date.week if end_date.week >= 10 else '0' + str(end_date.week)}"
+    return start_date, end_date

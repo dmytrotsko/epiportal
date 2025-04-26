@@ -1,17 +1,17 @@
-import logging
-import json
 import base64
+import json
+import logging
 
-from django.views.generic import ListView
 from django.conf import settings
 from django.http import JsonResponse
+from django.views.generic import ListView
 
-
-from indicatorsets.models import IndicatorSet
-from indicatorsets.forms import IndicatorSetFilterForm
-from indicatorsets.utils import generate_random_color, generate_epivis_custom_title
-from indicatorsets.filters import IndicatorSetFilter
 from base.models import Geography, GeographyUnit
+from indicatorsets.filters import IndicatorSetFilter
+from indicatorsets.forms import IndicatorSetFilterForm
+from indicatorsets.models import IndicatorSet
+from indicatorsets.utils import (generate_epivis_custom_title,
+                                 generate_random_color, get_epiweek)
 
 logger = logging.getLogger(__name__)
 
@@ -220,4 +220,52 @@ def epivis(request):
         datasets_json = json.dumps({"datasets": datasets})
         datasets_b64 = base64.b64encode(datasets_json.encode("ascii")).decode("ascii")
         response = {"epivis_url": f"{settings.EPIVIS_URL}#{datasets_b64}"}
+        return JsonResponse(response)
+
+
+def generate_export_data_url(request):
+    if request.method == "POST":
+        data_export_block = "To download data, please click on the link or copy/paste command(s) into your terminal: <br>{}"
+        data_export_commands = []
+        data = json.loads(request.body)
+        start_date = data.get("start_date", "")
+        end_date = data.get("end_date", "")
+        indicators = data.get("indicators", [])
+        covidcast_geos = data.get("covidCastGeographicValues", {})
+        fluview_geos = data.get("fluviewRegions", [])
+
+        for indicator in indicators:
+            if indicator["_endpoint"] == "covidcast":
+                start_day, end_day = (
+                    get_epiweek(start_date, end_date)
+                    if indicator["time_type"] == "week"
+                    else start_date
+                ), end_date
+                for type, values in covidcast_geos.items():
+                    geo_values = ",".join(
+                        [
+                            (
+                                value["id"].lower()
+                                if value["geoType"] in ["nation", "state"]
+                                else value["id"]
+                            )
+                            for value in values
+                        ]
+                    )
+                    data_export_url = f"https://api.delphi.cmu.edu/epidata/covidcast/csv?signal={indicator['data_source']}:{indicator['indicator']}&start_day={start_day}&end_day={end_day}&geo_type={type}&geo_values={geo_values}"
+                    data_export_commands.append(
+                        f'wget --content-disposition <a href="{data_export_url}">${data_export_url}</a>'
+                    )
+        if fluview_geos:
+            regions = ",".join([region["id"] for region in fluview_geos])
+            date_from, date_to = get_epiweek(start_date, end_date)
+            data_export_url = f"https://api.delphi.cmu.edu/epidata/fluview/?regions={regions}&epiweeks={date_from}-{date_to}&format=csv"
+            data_export_commands.append(
+                f'wget --content-disposition <a href="{data_export_url}">${data_export_url}</a>'
+            )
+        data_export_block = data_export_block.format("<br>".join(data_export_commands))
+        response = {
+            "data_export_block": data_export_block,
+            "data_export_commands": data_export_commands,
+        }
         return JsonResponse(response)
