@@ -80,6 +80,43 @@ const appendAlert = (message, type) => {
 
 var currentMode = "epivis";
 
+function handleModeChange(mode) {
+    $('#modeSubmitResult').html('');
+
+    var choose_dates = document.getElementsByName('choose_date');
+
+    if (mode === 'epivis') {
+        currentMode = 'epivis';
+        choose_dates.forEach((el) => {
+            el.style.display = 'none';
+        });
+        $('#modeSubmitResult').html('');
+    } else if (mode === 'export') {
+        currentMode = 'export';
+        choose_dates.forEach((el) => {
+            el.style.display = 'flex';
+        });
+        $('#modeSubmitResult').html('');
+    } else {
+        currentMode = 'preview';
+        choose_dates.forEach((el) => {
+            el.style.display = 'flex';
+        });
+    }
+    document.getElementsByName("modes").forEach((el) => {
+        if (currentMode === el.value) {
+            el.checked = true;
+        }
+    });
+}
+
+document.getElementsByName('modes').forEach((el) => {
+    el.addEventListener('change', (event) => {
+        currentMode = event.target.value;
+        handleModeChange(currentMode);
+    });
+});
+
 function showNotCoveredGeoWarningMessage(notCoveredIndicators, geoValue) {
     var warningMessage = "";
     notCoveredIndicators.forEach((indicator) => {
@@ -136,7 +173,7 @@ $("#geographic_value").on("select2:select", function (e) {
 });
 
 
-$("#showSelectedIndicatorsButton").click(function() {
+$("#showSelectedIndicatorsButton").click(function () {
     alertPlaceholder.innerHTML = "";
     if (!indicatorHandler.checkForCovidcastIndicators()) {
         $('#geographic_value').val(null).trigger('change');
@@ -152,7 +189,7 @@ $("#showSelectedIndicatorsButton").click(function() {
         })
     });
     var otherEndpointLocationsWarning = `<div class="alert alert-info" data-mdb-alert-init role="alert">` +
-    `   <div>Please, note that some indicator sets may require to select location(s) that is/are different from location(s) above.<br> `
+        `   <div>Please, note that some indicator sets may require to select location(s) that is/are different from location(s) above.<br> `
     nonCovidcastIndicatorSets = [...new Set(checkedIndicatorMembers.filter(indicator => indicator["_endpoint"] != "covidcast").map((indicator) => indicator["indicator_set"]))];
     otherEndpointLocationsWarning += `Different location is required for following Indicator Set(s): ${nonCovidcastIndicatorSets.join(", ")}`
     otherEndpointLocationsWarning += `</div></div>`
@@ -163,3 +200,24 @@ $("#showSelectedIndicatorsButton").click(function() {
         }
     }
 });
+
+
+
+function submitMode(event) {
+    event.preventDefault();
+    var geographicValues = $('#geographic_value').select2('data');
+    if (indicatorHandler.checkForCovidcastIndicators()) {
+        if (geographicValues.length === 0) {
+            appendAlert("Please select at least one geographic location", "warning")
+            return;
+        }
+    }
+
+    if (currentMode === 'epivis') {
+        indicatorHandler.plotData();
+    } else if (currentMode === 'export') {
+        indicatorHandler.exportData();
+    } else {
+        indicatorHandler.previewData();
+    }
+}

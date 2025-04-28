@@ -245,98 +245,32 @@ class IndicatorHandler {
     }
 
     previewData() {
-        $("#loader").show();
-        var requests = [];
-        var previewExample = [];
-        var startDate = document.getElementById("start_date").value;
-        var endDate = document.getElementById("end_date").value;
+        $('#loader').show();
+        var fluviewRegions = $("#fluviewRegions").select2("data");
 
-        if (this.checkForCovidcastIndicators()) {
-            var geographicValues = $("#geographic_value").select2("data");
-            geographicValues = Object.groupBy(
-                geographicValues,
-                ({ geoType }) => [geoType]
-            );
-            var geoTypes = Object.keys(geographicValues);
-            this.getCovidcastIndicators().forEach((indicator) => {
-                const [dateFrom, dateTo] = this.getFromToDate(
-                    startDate,
-                    endDate,
-                    indicator["time_type"]
-                );
-                var timeValues =
-                    indicator["time_type"] === "week"
-                        ? `${dateFrom}-${dateTo}`
-                        : `${dateFrom}--${dateTo}`;
-                geoTypes.forEach((geoType) => {
-                    var geoValues = geographicValues[geoType]
-                        .map((el) =>
-                            typeof el.id === "string"
-                                ? el.id.toLowerCase()
-                                : el.id
-                        )
-                        .join(",");
-                    var data = {
-                        time_type: indicator["time_type"],
-                        time_values: timeValues,
-                        data_source: indicator["data_source"],
-                        signal: indicator["signal"],
-                        geo_type: geoType,
-                        geo_values: geoValues,
-                    };
-                    requests.push(
-                        this.sendAsyncAjaxRequest("epidata/covidcast/", data)
-                    );
-                });
-            });
+        var covidCastGeographicValues = Object.groupBy(
+            $("#geographic_value").select2("data"),
+            ({ geoType }) => [geoType]
+        );
+
+        const submitData = {
+            start_date: document.getElementById("start_date").value,
+            end_date: document.getElementById("end_date").value,
+            indicators: this.indicators,
+            covidCastGeographicValues: covidCastGeographicValues,
+            fluviewRegions: fluviewRegions,
         }
-
-        if (this.getFluviewIndicators().length > 0) {
-            const [dateFrom, dateTo] = this.getFromToDate(
-                startDate,
-                endDate,
-                "week"
-            );
-            var fluviewRegions = $("#fluviewRegions")
-                .select2("data")
-                .map((region) => region.id);
-            fluviewRegions = fluviewRegions.join(",");
-            var data = {
-                regions: fluviewRegions,
-                epiweeks: `${dateFrom}-${dateTo}`,
-            };
-
-            requests.push(this.sendAsyncAjaxRequest("epidata/fluview/", data));
-        }
-
-        $.when.apply($, requests).then((...responses) => {
-            if (requests.length === 1) {
-                if (responses[0]["epidata"].length != 0) {
-                    previewExample.push({
-                        epidata: responses[0]["epidata"][0],
-                        result: responses["result"],
-                        message: responses["message"],
-                    });
-                } else {
-                    previewExample.push(responses[0]);
-                }
-            } else {
-                responses.forEach((response) => {
-                    if (response[0]["epidata"].length != 0) {
-                        previewExample.push({
-                            epidata: response[0]["epidata"][0],
-                            result: response[0]["result"],
-                            message: response[0]["message"],
-                        });
-                    } else {
-                        previewExample.push(response[0]["epidata"]);
-                    }
-                });
-            }
-            $("#loader").hide();
-            $("#modeSubmitResult").html(
-                JSON.stringify(previewExample, null, 2)
-            );
+        const csrftoken = Cookies.get("csrftoken");
+        $.ajax({
+            url: "preview_data/",
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json",
+            headers: { "X-CSRFToken": csrftoken },
+            data: JSON.stringify(submitData),
+        }).done(function (data) {
+            $('#loader').hide();
+            $('#modeSubmitResult').html(JSON.stringify(data, null, 2));
         });
     }
 }
