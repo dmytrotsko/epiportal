@@ -60,6 +60,13 @@ function addSelectedIndicator(element) {
     }
 }
 
+function hideAlert(alertId) {
+    const alert = document.getElementById(alertId);
+    if (alert) {
+        alert.remove();
+    }
+}
+
 const alertPlaceholder = document.getElementById("warning-alert");
 
 const appendAlert = (message, type) => {
