@@ -240,14 +240,7 @@ def generate_export_data_url(request):
 
         for indicator in indicators:
             if indicator["_endpoint"] == "covidcast":
-                start_day, end_day = (
-                    (
-                        get_epiweek(start_date, end_date)
-                        if indicator["time_type"] == "week"
-                        else start_date
-                    ),
-                    end_date,
-                )
+                dates = get_epiweek(start_date, end_date) if indicator["time_type"] == "week" else [start_date, end_date]  # fmt: skip
                 for type, values in covidcast_geos.items():
                     geo_values = ",".join(
                         [
@@ -259,16 +252,16 @@ def generate_export_data_url(request):
                             for value in values
                         ]
                     )
-                    data_export_url = f"{settings.EPIDATA_URL}covidcast/csv?signal={indicator['data_source']}:{indicator['indicator']}&start_day={start_day}&end_day={end_day}&geo_type={type}&geo_values={geo_values}"
+                    data_export_url = f"{settings.EPIDATA_URL}covidcast/csv?signal={indicator['data_source']}:{indicator['indicator']}&start_day={dates[0]}&end_day={dates[1]}&geo_type={type}&geo_values={geo_values}"
                     data_export_commands.append(
-                        f'wget --content-disposition <a href="{data_export_url}">${data_export_url}</a>'
+                        f'wget --content-disposition <a href="{data_export_url}">{data_export_url}</a>'
                     )
         if fluview_geos:
             regions = ",".join([region["id"] for region in fluview_geos])
             date_from, date_to = get_epiweek(start_date, end_date)
             data_export_url = f"{settings.EPIDATA_URL}fluview/?regions={regions}&epiweeks={date_from}-{date_to}&format=csv"
             data_export_commands.append(
-                f'wget --content-disposition <a href="{data_export_url}">${data_export_url}</a>'
+                f'wget --content-disposition <a href="{data_export_url}">{data_export_url}</a>'
             )
         data_export_block = data_export_block.format("<br>".join(data_export_commands))
         response = {
