@@ -54,15 +54,25 @@ GEOGRAPHIC_GRANULARITY_MAPPING = {
         "display_order_number": 10,
         "short_name": "DMA",
     },
-    "facility": {
-        "display_name": 'Hospital ("Facility")',
+    "other_substate_region": {
+        "display_name": "Other Substate Region",
         "display_order_number": 11,
-        "short_name": "Facility",
+        "short_name": "Other Substate Region",
     },
     "FluSurv-Net site": {
         "display_name": "FluSurv-Net site (see documentation)",
         "display_order_number": 12,
         "short_name": "FluSurv-Net site",
     },
-    "N/A": {"display_name": "N/A", "display_order_number": 13, "short_name": "N/A"},
+    "facility": {
+        "display_name": 'Hospital ("Facility")',
+        "display_order_number": 13,
+        "short_name": "Facility",
+    },
+    "lat_long": {
+        "display_name": "Lat/Long",
+        "display_order_number": 14,
+        "short_name": "Lat/Long",
+    },
+    "N/A": {"display_name": "N/A", "display_order_number": 15, "short_name": "N/A"},
 }

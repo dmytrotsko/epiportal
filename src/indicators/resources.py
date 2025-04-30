@@ -11,6 +11,7 @@ from indicators.models import (
     Category,
     FormatType,
     Indicator,
+    OtherEndpointIndicator,
     IndicatorGeography,
     IndicatorType,
 )
@@ -522,7 +523,7 @@ class OtherEndpointIndicatorResource(ModelResource):
     )
 
     class Meta:
-        model = Indicator
+        model = OtherEndpointIndicator
         fields: list[str] = [
             "name",
             "display_name",
