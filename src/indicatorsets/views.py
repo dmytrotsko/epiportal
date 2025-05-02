@@ -110,15 +110,15 @@ class IndicatorSetListView(ListView):
                 if self.request.GET.get("severity_pyramid_rungs")
                 else ""
             ),
-            "data_source": [el for el in self.request.GET.getlist("data_source")],
+            "original_data_provider": [el for el in self.request.GET.getlist("original_data_provider")],
             "temporal_granularity": (
                 [el for el in self.request.GET.getlist("temporal_granularity")]
                 if self.request.GET.get("temporal_granularity")
                 else ""
             ),
-            "available_geographies": (
-                [el for el in self.request.GET.getlist("available_geographies")]
-                if self.request.GET.get("available_geographies")
+            "geographic_levels": (
+                [el for el in self.request.GET.getlist("geographic_levels")]
+                if self.request.GET.get("geographic_levels")
                 else ""
             ),
             "temporal_scope_end": (
