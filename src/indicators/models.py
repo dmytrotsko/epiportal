@@ -235,6 +235,8 @@ class Indicator(models.Model):
         verbose_name="Geographic Scope",
         on_delete=models.PROTECT,
         related_name="indicators",
+        null=True,
+        blank=True,
     )
     available_geographies: models.ManyToManyField = models.ManyToManyField(
         "base.Geography",
@@ -300,6 +302,8 @@ class Indicator(models.Model):
         verbose_name="Source Subdivision",
         on_delete=models.PROTECT,
         related_name="indicators",
+        null=True,
+        blank=True,
     )
     data_censoring: models.TextField = models.TextField(
         verbose_name="Data Censoring",
@@ -437,3 +441,11 @@ class OtherEndpointIndicator(Indicator):
         proxy = True
         verbose_name = "Other Endpoint Indicator"
         verbose_name_plural = "Other Endpoint Indicators"
+
+
+class NonDelphiIndicator(Indicator):
+
+    class Meta:
+        proxy = True
+        verbose_name = "Non-Delphi Indicator"
+        verbose_name_plural = "Non-Delphi Indicators"
