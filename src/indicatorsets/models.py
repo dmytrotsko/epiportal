@@ -204,3 +204,11 @@ class IndicatorSet(models.Model):
     @property
     def get_geographic_levels(self):
         return [geo.display_name for geo in self.geographic_levels.all()]
+
+
+class NonDelphiIndicatorSet(IndicatorSet):
+
+    class Meta:
+        proxy = True
+        verbose_name = "Non-Delphi Indicator Set"
+        verbose_name_plural = "Non-Delphi Indicators Sets"

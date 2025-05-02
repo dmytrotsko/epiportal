@@ -1,8 +1,10 @@
+import logging
+
 from django.db.models import Max
 from import_export import resources
 from import_export.fields import Field
-from import_export.widgets import ForeignKeyWidget, ManyToManyWidget
 from import_export.results import RowResult
+from import_export.widgets import ForeignKeyWidget, ManyToManyWidget
 
 from base.models import GeographicScope, Geography, Pathogen, SeverityPyramidRung
 from base.resources import GEOGRAPHIC_GRANULARITY_MAPPING
@@ -13,8 +15,12 @@ from indicators.models import (
     Indicator,
     IndicatorGeography,
     IndicatorType,
+    NonDelphiIndicator,
+    OtherEndpointIndicator,
 )
-from indicatorsets.models import IndicatorSet
+from indicatorsets.models import IndicatorSet, NonDelphiIndicatorSet
+
+logger = logging.getLogger(__name__)
 
 
 def fix_boolean_fields(row) -> None:
@@ -29,11 +35,11 @@ def fix_boolean_fields(row) -> None:
     ]
 
     for field in fields:
-        if row[field] == "TRUE":
+        if row.get(field, "") == "TRUE":
             row[field] = True
-        elif row[field] == "FALSE":
+        elif row.get(field, "") == "FALSE":
             row[field] = False
-        elif row[field] == "":
+        elif row.get(field, None) == "":
             row[field] = False
     return row
 
@@ -225,18 +231,27 @@ class ModelResource(resources.ModelResource):
         return import_result
 
 
+class PermissiveForeignKeyWidget(ForeignKeyWidget):
+
+    def clean(self, value, row=None, **kwargs):
+        try:
+            return super().clean(value)
+        except self.model.DoesNotExist:
+            logger.warning(f"instance matching '{value}' does not exist")
+
+
 class IndicatorBaseResource(ModelResource):
     name = Field(attribute="name", column_name="Signal")
     display_name = Field(attribute="display_name", column_name="Name")
     base = Field(
         attribute="base",
         column_name="base",
-        widget=ForeignKeyWidget(Indicator, field="id"),
+        widget=PermissiveForeignKeyWidget(Indicator, field="id"),
     )
     source = Field(
         attribute="source",
         column_name="Source Subdivision",
-        widget=ForeignKeyWidget(SourceSubdivision, field="name"),
+        widget=PermissiveForeignKeyWidget(SourceSubdivision, field="name"),
     )
 
     class Meta:
@@ -271,13 +286,13 @@ class IndicatorResource(ModelResource):
     indicator_type = Field(
         attribute="indicator_type",
         column_name="Indicator Type",
-        widget=ForeignKeyWidget(IndicatorType),
+        widget=PermissiveForeignKeyWidget(IndicatorType),
     )
     active = Field(attribute="active", column_name="Active")
     format_type = Field(
         attribute="format_type",
         column_name="Format",
-        widget=ForeignKeyWidget(FormatType),
+        widget=PermissiveForeignKeyWidget(FormatType),
     )
     time_type = Field(attribute="time_type", column_name="Time Type")
     time_label = Field(attribute="time_label", column_name="Time Label")
@@ -299,12 +314,12 @@ class IndicatorResource(ModelResource):
     category = Field(
         attribute="category",
         column_name="Category",
-        widget=ForeignKeyWidget(Category),
+        widget=PermissiveForeignKeyWidget(Category),
     )
     geographic_scope = Field(
         attribute="geographic_scope",
         column_name="Geographic Coverage",
-        widget=ForeignKeyWidget(GeographicScope),
+        widget=PermissiveForeignKeyWidget(GeographicScope),
     )
     available_geographies = Field(
         attribute="available_geographies",
@@ -332,7 +347,7 @@ class IndicatorResource(ModelResource):
     source = Field(
         attribute="source",
         column_name="Source Subdivision",
-        widget=ForeignKeyWidget(SourceSubdivision),
+        widget=PermissiveForeignKeyWidget(SourceSubdivision),
     )
     data_censoring = Field(attribute="data_censoring", column_name="Data Censoring")
     missingness = Field(attribute="missingness", column_name="Missingness")
@@ -349,7 +364,7 @@ class IndicatorResource(ModelResource):
     indicator_set = Field(
         attribute="indicator_set",
         column_name="Indicator Set",
-        widget=ForeignKeyWidget(IndicatorSet, field="name"),
+        widget=PermissiveForeignKeyWidget(IndicatorSet, field="name"),
     )
 
     class Meta:
@@ -440,13 +455,13 @@ class OtherEndpointIndicatorResource(ModelResource):
     indicator_type = Field(
         attribute="indicator_type",
         column_name="Indicator Type",
-        widget=ForeignKeyWidget(IndicatorType),
+        widget=PermissiveForeignKeyWidget(IndicatorType),
     )
     active = Field(attribute="active", column_name="Active")
     format_type = Field(
         attribute="format_type",
         column_name="Format",
-        widget=ForeignKeyWidget(FormatType),
+        widget=PermissiveForeignKeyWidget(FormatType),
     )
     time_type = Field(attribute="time_type", column_name="Time Type")
     time_label = Field(attribute="time_label", column_name="Time Label")
@@ -468,12 +483,12 @@ class OtherEndpointIndicatorResource(ModelResource):
     category = Field(
         attribute="category",
         column_name="Category",
-        widget=ForeignKeyWidget(Category),
+        widget=PermissiveForeignKeyWidget(Category),
     )
     geographic_scope = Field(
         attribute="geographic_scope",
         column_name="Geographic Coverage",
-        widget=ForeignKeyWidget(GeographicScope),
+        widget=PermissiveForeignKeyWidget(GeographicScope),
     )
     available_geographies = Field(
         attribute="available_geographies",
@@ -501,7 +516,7 @@ class OtherEndpointIndicatorResource(ModelResource):
     source = Field(
         attribute="source",
         column_name="Source Subdivision",
-        widget=ForeignKeyWidget(SourceSubdivision),
+        widget=PermissiveForeignKeyWidget(SourceSubdivision),
     )
     data_censoring = Field(attribute="data_censoring", column_name="Data Censoring")
     missingness = Field(attribute="missingness", column_name="Missingness")
@@ -518,11 +533,11 @@ class OtherEndpointIndicatorResource(ModelResource):
     indicator_set = Field(
         attribute="indicator_set",
         column_name="Indicator Set",
-        widget=ForeignKeyWidget(IndicatorSet, field="name"),
+        widget=PermissiveForeignKeyWidget(IndicatorSet, field="name"),
     )
 
     class Meta:
-        model = Indicator
+        model = OtherEndpointIndicator
         fields: list[str] = [
             "name",
             "display_name",
@@ -585,3 +600,36 @@ class OtherEndpointIndicatorResource(ModelResource):
 
     def after_import_row(self, row, row_result, **kwargs):
         process_indicator_geography(row)
+
+
+class NonDelphiIndicatorResource(resources.ModelResource):
+
+    name = Field(attribute="name", column_name="Indicator Name")
+    display_name = Field(attribute="display_name", column_name="Indicator Name")
+    member_name = Field(attribute="member_name", column_name="Indicator API Name")
+    description = Field(attribute="description", column_name="Indicator Description")
+    indicator_set = Field(
+        attribute="indicator_set",
+        column_name="Indicator Set",
+        widget=PermissiveForeignKeyWidget(NonDelphiIndicatorSet, field="name"),
+    )
+
+    class Meta:
+        model = NonDelphiIndicator
+        fields: list[str] = [
+            "name",
+            "display_name",
+            "member_name",
+            "description",
+            "indicator_set",
+        ]
+        import_id_fields: list[str] = ["name"]
+        skip_unchanged = True
+
+    def before_import_row(self, row, **kwargs) -> None:
+        """Post-processes each row after importing."""
+        fix_boolean_fields(row)
+
+    def skip_row(self, instance, original, row, import_validation_errors=None):
+        if not row["Include in indicator app"]:
+            return True

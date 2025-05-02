@@ -76,19 +76,19 @@ class IndicatorSetListView(ListView):
             related_indicators.append(
                 {
                     "id": indicator.id,
-                    "display_name": indicator.get_display_name,
-                    "member_name": indicator.member_name,
-                    "member_short_name": indicator.member_short_name,
-                    "name": indicator.name,
-                    "indicator_set": indicator.indicator_set.id,
-                    "indicator_set_name": indicator.indicator_set.name,
-                    "indicator_set_short_name": indicator.indicator_set.short_name,
-                    "endpoint": indicator.indicator_set.epidata_endpoint,
-                    "source": indicator.source.name,
-                    "time_type": indicator.time_type,
-                    "description": indicator.description,
-                    "member_description": indicator.member_description,
-                    "restricted": indicator.indicator_set.dua_required,
+                    "display_name": indicator.get_display_name if indicator.get_display_name else "",
+                    "member_name": indicator.member_name if indicator.member_name else "",
+                    "member_short_name": indicator.member_short_name if indicator.member_short_name else "",
+                    "name": indicator.name if indicator.name else "",
+                    "indicator_set": indicator.indicator_set.id if indicator.indicator_set else "",
+                    "indicator_set_name": indicator.indicator_set.name if indicator.indicator_set else "",
+                    "indicator_set_short_name": indicator.indicator_set.short_name if indicator.indicator_set else "",
+                    "endpoint": indicator.indicator_set.epidata_endpoint if indicator.indicator_set else "",
+                    "source": indicator.source.name if indicator.source else "",
+                    "time_type": indicator.time_type if indicator.time_type else "",
+                    "description": indicator.description if indicator.description else "",
+                    "member_description": indicator.member_description if indicator.member_description else indicator.description,
+                    "restricted": indicator.indicator_set.dua_required if indicator.indicator_set else "",
                 }
             )
         return related_indicators
