@@ -8,11 +8,13 @@ from indicators.models import (
     IndicatorGeography,
     IndicatorType,
     OtherEndpointIndicator,
+    NonDelphiIndicator
 )
 from indicators.resources import (
     IndicatorResource,
     IndicatorBaseResource,
     OtherEndpointIndicatorResource,
+    NonDelphiIndicatorResource,
 )
 
 
@@ -90,3 +92,21 @@ class OtherEndpointIndicatorAdmin(ImportExportModelAdmin):
     list_display_links = ("name",)
 
     resource_classes = [OtherEndpointIndicatorResource]
+
+
+@admin.register(NonDelphiIndicator)
+class NonDelphiIndicatorAdmin(ImportExportModelAdmin):
+    list_display = (
+        "name",
+        "member_name",
+        "description",
+        "indicator_set",
+    )
+    search_fields = ("name", "description")
+    ordering = ("name",)
+    list_per_page = 50
+    list_select_related = True
+    list_editable = ("member_name", "description", "indicator_set")
+    list_display_links = ("name",)
+
+    resource_classes = [NonDelphiIndicatorResource]
