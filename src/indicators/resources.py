@@ -440,7 +440,7 @@ class OtherEndpointIndicatorResource(ModelResource):
         attribute="short_description", column_name="Short Description"
     )
     description = Field(attribute="description", column_name="Description")
-    member_name = Field(attribute="member_name", column_name="Member API Name")
+    member_name = Field(attribute="member_name", column_name="Member Name")
     member_short_name = Field(
         attribute="member_short_name", column_name="Member Short Name"
     )
