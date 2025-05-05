@@ -367,7 +367,7 @@ class Indicator(models.Model):
         "indicators.Indicator",
         verbose_name="Base Indicator",
         related_name="base_for",
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
         null=True,
         blank=True,
     )
