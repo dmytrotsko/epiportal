@@ -76,19 +76,49 @@ class IndicatorSetListView(ListView):
             related_indicators.append(
                 {
                     "id": indicator.id,
-                    "display_name": indicator.get_display_name if indicator.get_display_name else "",
-                    "member_name": indicator.member_name if indicator.member_name else "",
-                    "member_short_name": indicator.member_short_name if indicator.member_short_name else "",
+                    "display_name": (
+                        indicator.get_display_name if indicator.get_display_name else ""
+                    ),
+                    "member_name": (
+                        indicator.member_name if indicator.member_name else ""
+                    ),
+                    "member_short_name": (
+                        indicator.member_short_name
+                        if indicator.member_short_name
+                        else ""
+                    ),
                     "name": indicator.name if indicator.name else "",
-                    "indicator_set": indicator.indicator_set.id if indicator.indicator_set else "",
-                    "indicator_set_name": indicator.indicator_set.name if indicator.indicator_set else "",
-                    "indicator_set_short_name": indicator.indicator_set.short_name if indicator.indicator_set else "",
-                    "endpoint": indicator.indicator_set.epidata_endpoint if indicator.indicator_set else "",
+                    "indicator_set": (
+                        indicator.indicator_set.id if indicator.indicator_set else ""
+                    ),
+                    "indicator_set_name": (
+                        indicator.indicator_set.name if indicator.indicator_set else ""
+                    ),
+                    "indicator_set_short_name": (
+                        indicator.indicator_set.short_name
+                        if indicator.indicator_set
+                        else ""
+                    ),
+                    "endpoint": (
+                        indicator.indicator_set.epidata_endpoint
+                        if indicator.indicator_set
+                        else ""
+                    ),
                     "source": indicator.source.name if indicator.source else "",
                     "time_type": indicator.time_type if indicator.time_type else "",
-                    "description": indicator.description if indicator.description else "",
-                    "member_description": indicator.member_description if indicator.member_description else indicator.description,
-                    "restricted": indicator.indicator_set.dua_required if indicator.indicator_set else "",
+                    "description": (
+                        indicator.description if indicator.description else ""
+                    ),
+                    "member_description": (
+                        indicator.member_description
+                        if indicator.member_description
+                        else indicator.description
+                    ),
+                    "restricted": (
+                        indicator.indicator_set.dua_required
+                        if indicator.indicator_set
+                        else ""
+                    ),
                     "source_type": indicator.source_type,
                 }
             )
@@ -111,7 +141,9 @@ class IndicatorSetListView(ListView):
                 if self.request.GET.get("severity_pyramid_rungs")
                 else ""
             ),
-            "original_data_provider": [el for el in self.request.GET.getlist("original_data_provider")],
+            "original_data_provider": [
+                el for el in self.request.GET.getlist("original_data_provider")
+            ],
             "temporal_granularity": (
                 [el for el in self.request.GET.getlist("temporal_granularity")]
                 if self.request.GET.get("temporal_granularity")
@@ -186,8 +218,11 @@ def epivis(request):
         for indicator in indicators:
             if indicator["_endpoint"] == "covidcast":
                 for geo in covidcast_geos:
-                    if geo["geoType"] in ["nation", "state"]:
-                        geo_value = geo["id"].lower()
+                    geo_value = (
+                        geo["id"].lower()
+                        if geo["geoType"] in ["nation", "state"]
+                        else geo["id"]
+                    )
                     datasets.append(
                         {
                             "color": generate_random_color(),
