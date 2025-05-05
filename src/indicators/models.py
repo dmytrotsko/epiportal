@@ -4,6 +4,13 @@ from django.utils.translation import gettext_lazy as _
 from django.db import models
 
 
+SOURCE_TYPES = [
+    ("covidcast", "Covidcast"),
+    ("other_endpoint", "Other Endpoint"),
+    ("non_delphi", "Non Delphi"),
+]
+
+
 # Create your models here.
 class IndicatorType(models.Model):
 
@@ -122,9 +129,7 @@ class IndicatorGeography(models.Model):
 
 class Indicator(models.Model):
 
-    name: models.CharField = models.CharField(
-        verbose_name="Name", max_length=255
-    )
+    name: models.CharField = models.CharField(verbose_name="Name", max_length=255)
     display_name: models.CharField = models.CharField(
         verbose_name="Display Name", max_length=255, blank=True
     )
@@ -380,6 +385,16 @@ class Indicator(models.Model):
         blank=True,
     )
 
+    source_type: models.CharField = models.CharField(
+        verbose_name="Source Type",
+        max_length=255,
+        choices=SOURCE_TYPES,
+        default="covidcast",
+        help_text="Type of source for the indicator",
+        blank=True,
+        null=True,
+    )
+
     class Meta:
         verbose_name = "Indicator"
         verbose_name_plural = "Indicators"
@@ -397,7 +412,8 @@ class Indicator(models.Model):
                 fields=["name", "source"], name="unique_indicator_name"
             ),
             models.UniqueConstraint(
-                fields=["name", "indicator_set"], name="unique_indicator_indicator_set_name"
+                fields=["name", "indicator_set"],
+                name="unique_indicator_indicator_set_name",
             ),
         ]
 
