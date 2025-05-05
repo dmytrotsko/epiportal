@@ -348,13 +348,14 @@ def preview_data(request):
                     )
                     if response.status_code == 200:
                         data = response.json()
-                        preview_data.append(
-                            {
-                                "epidata": data["epidata"][0],
-                                "result": data["result"],
-                                "message": data["message"],
-                            }
-                        )
+                        if len(data["epidata"]):
+                            preview_data.append(
+                                {
+                                    "epidata": data["epidata"][0],
+                                    "result": data["result"],
+                                    "message": data["message"],
+                                }
+                            )
         if fluview_geos:
             regions = ",".join([region["id"] for region in fluview_geos])
             date_from, date_to = get_epiweek(start_date, end_date)
@@ -365,11 +366,12 @@ def preview_data(request):
             response = requests.get(f"{settings.EPIDATA_URL}fluview", params=params)
             if response.status_code == 200:
                 data = response.json()
-                preview_data.append(
-                    {
-                        "epidata": data["epidata"][0],
-                        "result": data["result"],
-                        "message": data["message"],
-                    }
-                )
+                if len(data["epidata"]):
+                    preview_data.append(
+                        {
+                            "epidata": data["epidata"][0],
+                            "result": data["result"],
+                            "message": data["message"],
+                        }
+                    )
         return JsonResponse(preview_data, safe=False)
