@@ -5,6 +5,7 @@ from datetime import datetime as dtime
 import requests
 from django.conf import settings
 from epiweeks import Week
+from indicatorsets.models import IndicatorSet
 
 
 def list_to_dict(lst):
@@ -53,3 +54,12 @@ def get_epiweek(start_date, end_date):
     end_date = Week.fromdate(end_date)
     end_date = f"{end_date.year}{end_date.week if end_date.week >= 10 else '0' + str(end_date.week)}"
     return [start_date, end_date]
+
+
+def get_original_data_provider_choices():
+    return [
+        (el, el)
+        for el in IndicatorSet.objects.values_list("original_data_provider", flat=True)
+        .order_by("original_data_provider")
+        .distinct()
+    ]

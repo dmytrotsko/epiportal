@@ -428,6 +428,10 @@ class IndicatorResource(ModelResource):
     def after_import_row(self, row, row_result, **kwargs):
         process_indicator_geography(row)
 
+    def after_save_instance(self, instance, row, **kwargs):
+        instance.source_type = "covidcast"
+        instance.save()
+
     def skip_row(self, instance, original, row, import_validation_errors=None):
         if not row["Include in indicator app"]:
             return True
@@ -601,6 +605,10 @@ class OtherEndpointIndicatorResource(ModelResource):
     def after_import_row(self, row, row_result, **kwargs):
         process_indicator_geography(row)
 
+    def after_save_instance(self, instance, row, **kwargs):
+        instance.source_type = "other_endpoint"
+        instance.save()
+
 
 class NonDelphiIndicatorResource(resources.ModelResource):
 
@@ -633,3 +641,7 @@ class NonDelphiIndicatorResource(resources.ModelResource):
     def skip_row(self, instance, original, row, import_validation_errors=None):
         if not row["Include in indicator app"]:
             return True
+
+    def after_save_instance(self, instance, row, **kwargs):
+        instance.source_type = "non_delphi"
+        instance.save()

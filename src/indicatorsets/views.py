@@ -89,6 +89,7 @@ class IndicatorSetListView(ListView):
                     "description": indicator.description if indicator.description else "",
                     "member_description": indicator.member_description if indicator.member_description else indicator.description,
                     "restricted": indicator.indicator_set.dua_required if indicator.indicator_set else "",
+                    "source_type": indicator.source_type,
                 }
             )
         return related_indicators
