@@ -7,23 +7,15 @@ from django_filters.widgets import QueryArrayWidget
 
 
 from indicatorsets.models import IndicatorSet
-from indicatorsets.utils import get_list_of_indicators_filtered_by_geo
+from indicatorsets.utils import (
+    get_list_of_indicators_filtered_by_geo,
+    get_original_data_provider_choices,
+)
 from indicators.models import Indicator
 from base.models import Pathogen, GeographicScope, Geography, SeverityPyramidRung
 
 
 logger = logging.getLogger(__name__)
-
-try:
-    ORIGINAL_DATA_PROVIDER_CHOICES = [
-        (el, el)
-        for el in set(
-            IndicatorSet.objects.values_list("original_data_provider", flat=True)
-        )
-    ]
-except Exception as e:
-    ORIGINAL_DATA_PROVIDER_CHOICES = [("", "No original data provider available")]
-    print(f"Error fetching original data provider choices: {e}")
 
 
 class IndicatorSetFilter(django_filters.FilterSet):
@@ -60,7 +52,7 @@ class IndicatorSetFilter(django_filters.FilterSet):
 
     original_data_provider = django_filters.MultipleChoiceFilter(
         field_name="original_data_provider",
-        choices=ORIGINAL_DATA_PROVIDER_CHOICES,
+        choices=get_original_data_provider_choices,
         widget=QueryArrayWidget,
         lookup_expr="exact",
         required=False,
