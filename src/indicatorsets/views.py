@@ -413,7 +413,7 @@ def create_query_code(request):
                         python_code_blocks.append(python_code_block)
                         r_code_block = (
                             '<pre class="code-block">'
-                            + "<code>libary(covidcast)<br>"
+                            + "<code>libary(covidcast)<br><br>"
                             + f'cc_data <- covidcast_signal(data_source = "{indicator["data_source"]}", signal = "{indicator["indicator"]}", start_day = "{start_day}", end_day = "{end_day}", geo_type = "{geo_type}", geo_values = c({r_geos}))'
                             + "</code>"
                             + "</pre>"
@@ -433,7 +433,7 @@ def create_query_code(request):
                         python_code_blocks.append(python_code_block)
                         r_code_block = (
                             '<pre class="code-block">'
-                            + "<code>libary(covidcast)<br>"
+                            + "<code>libary(covidcast)<br><br>"
                             + f'cc_data <- covidcast_signal(data_source = "{indicator["data_source"]}", signal = "{indicator["indicator"]}", start_day = "{start_date}", end_day = "{end_date}", geo_type = "{geo_type}", geo_values = c({r_geos}))'
                             + "</code>"
                             + "</pre>"
