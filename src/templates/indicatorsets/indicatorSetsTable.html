@@ -242,6 +242,7 @@
                             <i class="far fa-circle-question"></i>
                         </a>
                     </th>
+                    <th class="text-center">Hosted by Delphi?</th>
                     <th class="text-center">DUA required?</th>
                     <th class="text-center">
                         Data Use Terms
@@ -298,6 +299,13 @@
                         <td>{{ indicator_set.preprocessing_description }}</td>
                         <td>{{ indicator_set.censoring }}</td>
                         <td>{{ indicator_set.missingness }}</td>
+                        <td>
+                            {% if indicator_set.source_type == "non_delphi" %}
+                                No
+                            {% else %}
+                                Yes
+                            {% endif %}
+                        </td>
                         <td>{{ indicator_set.dua_required }}</td>
                         <td>{{ indicator_set.license }}</td>
                         <td>

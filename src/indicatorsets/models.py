@@ -1,4 +1,5 @@
 from django.db import models
+from base.models import SOURCE_TYPES
 
 
 DUA_REQUIRED_CHOICES = (
@@ -182,6 +183,16 @@ class IndicatorSet(models.Model):
         max_length=255,
         blank=True,
         help_text="Link to the documentation for the Indicator Set",
+    )
+
+    source_type: models.CharField = models.CharField(
+        verbose_name="Source Type",
+        max_length=255,
+        choices=SOURCE_TYPES,
+        default="covidcast",
+        help_text="Type of source for the indicator",
+        blank=True,
+        null=True,
     )
 
     class Meta:

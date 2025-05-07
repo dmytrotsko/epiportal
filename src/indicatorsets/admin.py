@@ -50,7 +50,8 @@ class NonDelphiIndicatorSetAdmin(ImportExportModelAdmin):
         "version_number",
         "original_data_provider",
         "origin_datasource",
+        "source_type",
     )
     search_fields = ("name", "short_name", "description")
     ordering = ["name"]
-    list_filter = ["original_data_provider"]
+    list_filter = ["original_data_provider", "source_type"]

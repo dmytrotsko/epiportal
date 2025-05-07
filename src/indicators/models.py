@@ -3,12 +3,7 @@ from django.utils.translation import gettext_lazy as _
 
 from django.db import models
 
-
-SOURCE_TYPES = [
-    ("covidcast", "Covidcast"),
-    ("other_endpoint", "Other Endpoint"),
-    ("non_delphi", "Non Delphi"),
-]
+from base.models import SOURCE_TYPES
 
 
 # Create your models here.
