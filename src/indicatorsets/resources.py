@@ -225,6 +225,10 @@ class IndicatorSetResource(resources.ModelResource):
         process_pathogens(row)
         process_available_geographies(row)
 
+    def after_save_instance(self, instance, row, **kwargs):
+        instance.source_type = "covidcast" if instance.epidata_endpoint == "covidcast" else "other_endpoint"
+        instance.save()
+
 
 class NonDelphiIndicatorSetResource(resources.ModelResource):
     name = Field(attribute="name", column_name="Indicator Set name* ")
@@ -360,3 +364,7 @@ class NonDelphiIndicatorSetResource(resources.ModelResource):
         process_severity_pyramid_rungs(row)
         process_pathogens(row)
         process_available_geographies(row)
+
+    def after_save_instance(self, instance, row, **kwargs):
+        instance.source_type = "non_delphi"
+        instance.save()
