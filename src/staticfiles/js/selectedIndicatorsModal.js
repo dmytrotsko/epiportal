@@ -104,8 +104,13 @@ function handleModeChange(mode) {
             el.style.display = 'flex';
         });
         $('#modeSubmitResult').html('');
-    } else {
+    } else if (mode === 'preview') {
         currentMode = 'preview';
+        choose_dates.forEach((el) => {
+            el.style.display = 'flex';
+        });
+    } else if (mode === 'create_query_code') {
+        currentMode = 'create_query_code'
         choose_dates.forEach((el) => {
             el.style.display = 'flex';
         });
@@ -224,7 +229,9 @@ function submitMode(event) {
         indicatorHandler.plotData();
     } else if (currentMode === 'export') {
         indicatorHandler.exportData();
-    } else {
+    } else if (currentMode === 'preview') {
         indicatorHandler.previewData();
+    } else if (currentMode === 'create_query_code') {
+        indicatorHandler.createQueryCode();
     }
 }

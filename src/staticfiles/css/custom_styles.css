@@ -31,3 +31,22 @@
 .text-center {
     text-align: center !important;
 }
+
+.code-block {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    margin: 10px 0;
+}
+
+.highlight-code {
+    font-size: 0.875em!important;
+    color: var(--mdb-code-color)!important;
+    word-wrap: break-word!important;
+}
