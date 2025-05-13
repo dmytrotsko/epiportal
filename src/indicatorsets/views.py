@@ -2,6 +2,8 @@ import base64
 import json
 import logging
 import requests
+from bs4 import BeautifulSoup
+
 
 from django.conf import settings
 from django.http import JsonResponse
@@ -375,3 +377,69 @@ def preview_data(request):
                         }
                     )
         return JsonResponse(preview_data, safe=False)
+
+
+def create_query_code(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        start_date = data.get("start_date", "")
+        end_date = data.get("end_date", "")
+        indicators = data.get("indicators", [])
+        covidcast_geos = data.get("covidCastGeographicValues", {})
+        python_code_blocks = []
+        r_code_blocks = []
+        for indicator in indicators:
+            if indicator["_endpoint"] == "covidcast":
+                for geo_type, values in covidcast_geos.items():
+                    geo_values = [
+                        (
+                            value["id"].lower()
+                            if value["geoType"] in ["nation", "state"]
+                            else value["id"]
+                        )
+                        for value in values
+                    ]
+                    r_geos = ", ".join(f'"{str(geo)}"' for geo in geo_values)
+                    if indicator["time_type"] == "week":
+                        start_day, end_day = get_epiweek(start_date, end_date)
+                        python_code_block = (
+                            '<pre class="code-block">'
+                            + "<code>from epiweeks import Week<br>"
+                            + "import covidcast<br><br>"
+                            + f'data = covidcast.signal("{indicator["data_source"]}", "{indicator["indicator"]}", Week({int(start_day[:4])}, {int(start_day[4:])}), Week({int(end_day[:4])}, {int(end_day[4:])}), "{geo_type}", {json.dumps([str(geo) for geo in geo_values])})'
+                            + "</code>"
+                            + "</pre>"
+                        )
+                        python_code_blocks.append(python_code_block)
+                        r_code_block = (
+                            '<pre class="code-block">'
+                            + "<code>libary(covidcast)<br><br>"
+                            + f'cc_data <- covidcast_signal(data_source = "{indicator["data_source"]}", signal = "{indicator["indicator"]}", start_day = "{start_day}", end_day = "{end_day}", geo_type = "{geo_type}", geo_values = c({r_geos}))'
+                            + "</code>"
+                            + "</pre>"
+                        )
+                        r_code_blocks.append(r_code_block)
+                    else:
+                        start_day = tuple(map(int, start_date.split("-")))
+                        end_day = tuple(map(int, end_date.split("-")))
+                        python_code_block = (
+                            '<pre class="code-block">'
+                            + "<code>from datetime import date<br>"
+                            + "import covidcast<br><br>"
+                            + f'data = covidcast.signal("{indicator["data_source"]}", "{indicator["indicator"]}", date{str(start_day)}, date{str(end_day)}, "{geo_type}", {json.dumps([str(geo) for geo in geo_values])})'
+                            + "</code>"
+                            + "</pre>"
+                        )
+                        python_code_blocks.append(python_code_block)
+                        r_code_block = (
+                            '<pre class="code-block">'
+                            + "<code>libary(covidcast)<br><br>"
+                            + f'cc_data <- covidcast_signal(data_source = "{indicator["data_source"]}", signal = "{indicator["indicator"]}", start_day = "{start_date}", end_day = "{end_date}", geo_type = "{geo_type}", geo_values = c({r_geos}))'
+                            + "</code>"
+                            + "</pre>"
+                        )
+                        r_code_blocks.append(r_code_block)
+        return JsonResponse(
+            {"python_code_blocks": python_code_blocks, "r_code_blocks": r_code_blocks},
+            safe=False,
+        )
