@@ -12,7 +12,7 @@ from indicatorsets.utils import (
     get_original_data_provider_choices,
 )
 from indicators.models import Indicator
-from base.models import Pathogen, GeographicScope, Geography, SeverityPyramidRung
+from base.models import Pathogen, Geography, SeverityPyramidRung
 
 
 logger = logging.getLogger(__name__)
@@ -25,13 +25,6 @@ class IndicatorSetFilter(django_filters.FilterSet):
     pathogens = django_filters.ModelMultipleChoiceFilter(
         field_name="pathogens",
         queryset=Pathogen.objects.filter(used_in="indicatorsets"),
-        widget=QueryArrayWidget,
-        required=False,
-    )
-
-    geographic_scope = django_filters.ModelMultipleChoiceFilter(
-        field_name="geographic_scope",
-        queryset=GeographicScope.objects.filter(used_in="indicatorsets"),
         widget=QueryArrayWidget,
         required=False,
     )
@@ -90,7 +83,6 @@ class IndicatorSetFilter(django_filters.FilterSet):
         model = IndicatorSet
         fields = [
             "pathogens",
-            "geographic_scope",
             "geographic_levels",
             "severity_pyramid_rungs",
             "original_data_provider",

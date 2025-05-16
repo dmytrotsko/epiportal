@@ -77,43 +77,6 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header"
-                            id="flush-heading_{{ form.geographic_scope.auto_id }}">
-                            <button data-mdb-collapse-init
-                                    class="accordion-button collapsed"
-                                    type="button"
-                                    data-mdb-toggle="collapse"
-                                    data-mdb-target="#flush-collapse_{{ form.geographic_scope.auto_id }}"
-                                    aria-expanded="false"
-                                    aria-controls="flush-collapse_{{ form.geographic_scope.auto_id }}">
-                                Geographic Coverage
-                                <a tabindex="0"
-                                   type="button"
-                                   class="info-button filter-description-popover"
-                                   data-mdb-container="body"
-                                   data-mdb-ripple-init
-                                   data-mdb-popover-init
-                                   data-mdb-trigger="hover"
-                                   data-mdb-placement="right"
-                                   data-mdb-content="{{ filters_descriptions|dict_get:"geographic_scope" }}">
-                                    <i class="far fa-circle-question"></i>
-                                </a>
-                            </button>
-                        </h2>
-                        <div id="flush-collapse_{{ form.geographic_scope.auto_id }}"
-                             class="accordion-collapse {% if form.geographic_scope.value %} {% else %}collapse{% endif %}"
-                             aria-labelledby="flush-heading_{{ form.geographic_scope.auto_id }}"
-                             data-mdb-parent="#accordionIndicatorSetFilters">
-                            <div class="accordion-body margin-top-1rem">
-                                <div class="bulk-select form-check">
-                                    <input type="checkbox" class="form-check-input" id="select-all" />
-                                    <label class="form-check-label" for="select-all">Select all</label>
-                                </div>
-                                {{ form.geographic_scope|as_crispy_field }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header"
                             id="flush-heading_{{ form.geographic_levels.auto_id }}">
                             <button data-mdb-collapse-init
                                     class="accordion-button collapsed"
