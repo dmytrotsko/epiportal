@@ -12,7 +12,7 @@ function calculate_table_height() {
 
 var table = new DataTable("#indicatorSetsTable", {
     fixedHeader: true,
-    searching: false,
+    searching: true,
     paging: false,
     scrollCollapse: true,
     scrollX: true,
@@ -23,25 +23,29 @@ var table = new DataTable("#indicatorSetsTable", {
     },
     ordering: false,
     mark: true,
-
-    language: {
-        buttons: {
-            colvis: "Toggle Columns",
-        },
-    },
+    // language: {
+    //     buttons: {
+    //         colvis: "Toggle Columns",
+    //     },
+    // },
+    dom: 'lrtip' // Hides the default search box
 });
 
-new DataTable.Buttons(table, {
-    buttons: [
-        {
-            extend: "colvis",
-            columns: "th:nth-child(n+3)",
-            prefixButtons: ["colvisRestore"],
-        },
-    ],
-});
+// new DataTable.Buttons(table, {
+//     buttons: [
+//         {
+//             extend: "colvis",
+//             columns: "th:nth-child(n+3)",
+//             prefixButtons: ["colvisRestore"],
+//         },
+//     ],
+// });
 
-table.buttons(0, null).container().appendTo("#colvis");
+// table.buttons(0, null).container().appendTo("#colvis");
+
+$('#myCustomSearchBox').on('keyup change', function() {
+    table.search(this.value).draw();
+});
 
 function format(indicatorSetId, relatedIndicators, indicatorSetDescription) {
     var indicators = relatedIndicators.filter(

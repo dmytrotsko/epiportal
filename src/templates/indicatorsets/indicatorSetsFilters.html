@@ -11,6 +11,36 @@
                 <h2 class="card-title font-size-25">Filters</h2>
                 <div class="accordion accordion-flush" id="accordionIndicatorSetFilters">
                     <div class="accordion-item">
+                        <p class="accordion-header" id="flush-heading_search">
+                            Search:
+                            <a tabindex="0"
+                               type="button"
+                               class="info-button filter-description-popover"
+                               data-mdb-container="body"
+                               data-mdb-ripple-init
+                               data-mdb-popover-init
+                               data-mdb-trigger="hover"
+                               data-mdb-placement="right"
+                               data-mdb-content="{{ filters_descriptions|dict_get:"" }}">
+                                <i class="far fa-circle-question"></i>
+                            </a>
+                        </p>
+                        <div id="flush-collapse_search"
+                             aria-labelledby="flush-heading_search"
+                             data-mdb-parent="#accordionIndicatorSetFilters">
+                            <div class="accordion-body margin-top-1rem">
+                                <div class="input-group">
+                                    <div class="form-outline" data-mdb-input-init>
+                                        <input type="text"
+                                               id="myCustomSearchBox"
+                                               class="form-control form-control-lg" />
+                                        <label class="form-label" for="form12">Search ...</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
                         <p class="accordion-header" id="flush-heading_location_search">
                             Location(s):
                             <a tabindex="0"
