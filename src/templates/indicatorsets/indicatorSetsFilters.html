@@ -3,11 +3,10 @@
 {% load static %}
 {% load dict_get %}
 <div class="col-2">
-    <form method="get" id="filterIndicatorSetsForm">
+    <form method="GET" id="filterIndicatorSetsForm">
         <div class="card">
             <div class="card-body no-padding-top-bottom">
                 <span id="totalRowsNumber"></span>
-                <div class="colvis" id="colvis"></div>
                 <h2 class="card-title font-size-25">Filters</h2>
                 <div class="accordion accordion-flush" id="accordionIndicatorSetFilters">
                     <div class="accordion-item">
@@ -48,7 +47,7 @@
                                     data-mdb-target="#flush-collapse_{{ form.pathogens.auto_id }}"
                                     aria-expanded="false"
                                     aria-controls="flush-collapse_{{ form.pathogens.auto_id }}">
-                                Pathogens/Syndromes
+                                Pathogens<br>/Syndromes
                                 <a tabindex="0"
                                    type="button"
                                    class="info-button filter-description-popover"
@@ -234,10 +233,11 @@
                 </div>
                 <div class="card-body no-padding-top">
                     <div class="d-grid gap-2 mt-3">
-                        <button id="filter-submit" type="submit" class="btn btn-primary">{% trans "Apply Filters" %}</button>
+                        {% comment %} <button id="filter-submit" type="submit" class="btn btn-primary">{% trans "Apply Filters" %}</button> {% endcomment %}
                         <div class="margin-left-right-auto">
                             <a href="{% url 'indicatorsets' %}">Clear filters</a>
                         </div>
+                        {% comment %} <div class="colvis margin-left-right-auto" id="colvis"></div> {% endcomment %}
                     </div>
                     <hr />
                     <div class="d-grid gap-2 mt-3 smaller-font-size">
@@ -271,7 +271,7 @@
         initSelect2('location_search', locationSearchValues);
         if (urlParams.location_search != "") {
             var locationSearch = urlParams.location_search; 
-            $("#location_search").val(locationSearch).trigger("change");
+            $("#location_search").val(locationSearch).trigger("change.select2");
         }
     })
 </script>
