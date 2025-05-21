@@ -12,7 +12,6 @@ function calculate_table_height() {
 
 var table = new DataTable("#indicatorSetsTable", {
     fixedHeader: true,
-    responsive: true,
     searching: false,
     paging: false,
     scrollCollapse: true,

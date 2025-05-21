@@ -16,6 +16,7 @@ from indicatorsets.utils import (
     generate_epivis_custom_title,
     generate_random_color,
     get_epiweek,
+    group_by_property,
 )
 
 logger = logging.getLogger(__name__)
@@ -146,6 +147,29 @@ class IndicatorSetListView(ListView):
                     url_params_str = f"{url_params_str}&{param_name}={param_value}"
         return url_params_dict, url_params_str
 
+    def get_grouped_geographic_granularities(self):
+        geographic_granularities = [
+            {
+                "id": str(geo_unit.geo_id),
+                "geoType": geo_unit.geo_level.name,
+                "text": geo_unit.display_name,
+                "geoTypeDisplayName": geo_unit.geo_level.display_name,
+            }
+            for geo_unit in GeographyUnit.objects.all()
+            .prefetch_related("geo_level")
+            .order_by("level")
+        ]
+        geographic_granularities = group_by_property(
+            geographic_granularities, "geoTypeDisplayName"
+        )
+        grouped_geographic_granularities = []
+        for key, value in geographic_granularities.items():
+            grouped_geographic_granularities.append({
+                "text": key,
+                "children": value,
+            })
+        return grouped_geographic_granularities
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         queryset = self.get_queryset()
@@ -172,14 +196,7 @@ class IndicatorSetListView(ListView):
         context["available_geographies"] = Geography.objects.filter(
             used_in="indicators"
         )
-        context["geographic_granularities"] = [
-            {
-                "id": str(geo_unit.geo_id),
-                "geoType": geo_unit.geo_level.name,
-                "text": geo_unit.display_name,
-            }
-            for geo_unit in GeographyUnit.objects.all().prefetch_related("geo_level")
-        ]
+        context["geographic_granularities"] = self.get_grouped_geographic_granularities()
         return context
 
 

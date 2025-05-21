@@ -47,7 +47,9 @@
                                     data-mdb-target="#flush-collapse_{{ form.pathogens.auto_id }}"
                                     aria-expanded="false"
                                     aria-controls="flush-collapse_{{ form.pathogens.auto_id }}">
-                                Pathogens<br>/Syndromes
+                                Pathogens
+                                <br>
+                                /Syndromes
                                 <a tabindex="0"
                                    type="button"
                                    class="info-button filter-description-popover"
@@ -262,12 +264,13 @@
     $(document).ready(function() {
         const geoValues = {{ geographic_granularities|safe }};
         var urlParams = JSON.parse(JSON.stringify({{ url_params_dict|safe }}));
-        const locationSearchValues = geoValues.map(item => {
-            return {
-                ...item,
-                "id": `${item.geoType}:${item.id}`
-            }
-        });
+        const locationSearchValues = geoValues.map(group => ({
+            ...group,
+            children: group.children.map(child => ({
+                ...child,
+                id: `${child.geoType}:${child.id}`
+            }))
+        }));
         initSelect2('location_search', locationSearchValues);
         if (urlParams.location_search != "") {
             var locationSearch = urlParams.location_search; 
