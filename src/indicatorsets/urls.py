@@ -1,6 +1,5 @@
 from django.urls import path
 from django.urls.resolvers import URLPattern
-
 from indicatorsets.views import (IndicatorSetListView, epivis,
                                  generate_export_data_url, preview_data, create_query_code)
 
