@@ -1,7 +1,7 @@
 // Add an event listener to each 'bulk-select' element
 let bulkSelectDivs = document.querySelectorAll('.bulk-select');
 bulkSelectDivs.forEach(div => {
-    div.addEventListener('click', function(event) {
+    div.addEventListener('click', function (event) {
         let form = this.nextElementSibling;
         let showMoreLink = form.querySelector('a');
         let checkboxes = form.querySelectorAll('input[type="checkbox"]');
@@ -28,4 +28,23 @@ bulkSelectDivs.forEach(div => {
             }
         }
     });
+});
+
+function showLoader() {
+    document.getElementById('loaderOverlay').style.display = 'flex';
+    document.querySelector('.table-container').classList.add('faded');
+}
+
+$("#filterIndicatorSetsForm").find("input[type='checkbox']").on("change", function (e) {
+    // Show loader and fade table
+    showLoader();
+    this.form.submit();
+});
+
+$("#location_search").on({
+    "change": function (e) {
+        // Show loader and fade table
+        showLoader();
+        this.form.submit();
+    }
 });

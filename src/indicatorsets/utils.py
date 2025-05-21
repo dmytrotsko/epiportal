@@ -31,7 +31,6 @@ def get_list_of_indicators_filtered_by_geo(geos):
     url = f"{settings.EPIDATA_URL}covidcast/geo_coverage"
     params = {"geo": dict_to_geo_string(geos), "api_key": settings.EPIDATA_API_KEY}
     response = requests.get(url, params=params)
-    print(f"Response from Epidata: {response}")
     return response.json()
 
 

@@ -1,6 +1,6 @@
 from django import forms
 
-from base.models import Pathogen, GeographicScope, Geography, SeverityPyramidRung
+from base.models import Pathogen, Geography, SeverityPyramidRung
 from indicatorsets.models import IndicatorSet
 from indicatorsets.utils import get_original_data_provider_choices
 
@@ -9,13 +9,6 @@ class IndicatorSetFilterForm(forms.ModelForm):
 
     pathogens = forms.ModelMultipleChoiceField(
         queryset=Pathogen.objects.filter(used_in="indicatorsets"),
-        widget=forms.CheckboxSelectMultiple(),
-    )
-
-    geographic_scope = forms.ModelChoiceField(
-        queryset=GeographicScope.objects.filter(used_in="indicatorsets").order_by(
-            "display_order_number"
-        ),
         widget=forms.CheckboxSelectMultiple(),
     )
 
@@ -66,7 +59,6 @@ class IndicatorSetFilterForm(forms.ModelForm):
         model = IndicatorSet
         fields: list[str] = [
             "pathogens",
-            "geographic_scope",
             "geographic_levels",
             "severity_pyramid_rungs",
             "original_data_provider",
