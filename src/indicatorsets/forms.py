@@ -8,20 +8,22 @@ from indicatorsets.utils import get_original_data_provider_choices
 class IndicatorSetFilterForm(forms.ModelForm):
 
     pathogens = forms.ModelMultipleChoiceField(
-        queryset=Pathogen.objects.filter(used_in="indicatorsets"),
+        queryset=Pathogen.objects.filter(
+            id__in=IndicatorSet.objects.values_list("pathogens", flat=True)
+        ).order_by("display_order_number"),
         widget=forms.CheckboxSelectMultiple(),
     )
 
     geographic_levels = forms.ModelMultipleChoiceField(
-        queryset=Geography.objects.filter(used_in="indicatorsets").order_by(
-            "display_order_number"
-        ),
+        queryset=Geography.objects.filter(
+            id__in=IndicatorSet.objects.values_list("geographic_levels", flat=True)
+        ).order_by("display_order_number"),
         widget=forms.CheckboxSelectMultiple(),
     )
     severity_pyramid_rungs = forms.ModelMultipleChoiceField(
-        queryset=SeverityPyramidRung.objects.filter(used_in="indicatorsets").order_by(
-            "display_order_number"
-        ),
+        queryset=SeverityPyramidRung.objects.filter(
+            id__in=IndicatorSet.objects.values_list("severity_pyramid_rungs", flat=True)
+        ).order_by("display_order_number"),
         widget=forms.CheckboxSelectMultiple(),
     )
 
